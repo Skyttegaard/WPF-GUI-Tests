@@ -1,0 +1,135 @@
+﻿<Window x:Class="GUI_til_test_program.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_til_test_program"
+        xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
+        d:DataContext="{d:DesignInstance viewModels:Viewmodels}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1024">
+    <Grid>
+
+        <TabControl x:Name="SetDataTabControl"
+                    >
+
+            <TabItem Header="Sæt 1"
+                     x:Name="Set1ItemTab">
+                <TabControl>
+                    <TabItem Header="Job">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="63"/>
+                                <ColumnDefinition Width="237"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <ComboBox Grid.Row="0" Grid.Column="0"  Width="80" Height="40" HorizontalAlignment="Left"/>
+
+                                <ComboBox Grid.Row="0" Grid.Column="1" Width="80" Height="40" HorizontalAlignment="Left"/>
+
+
+                            </Grid>
+                            <DataGrid Grid.Row="1" Grid.Column="0"
+                                       Width="300"
+                                      HeadersVisibility="Column"
+                                      CanUserAddRows="False"
+                                      CanUserDeleteRows="False"
+                                      VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="2">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Opgave"
+                                                         IsReadOnly="True">
+
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <Grid Grid.Row="1" Grid.Column="2" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" Text="Beskrivelse" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
+                                <TextBox Grid.Row="1" Text="Script" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
+                            </Grid>
+                            <Grid Grid.Row="1" Grid.Column="2" Margin="0,616,0,0" Grid.RowSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!--Execute Button & Timer -->
+                                <Button Grid.Column="2" Width="80" Height="40" Content="Start" Click="LavFejl_Click" x:Name="LavFejl_Button"/>
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding CurrentTime}" IsReadOnly="True"/>
+                            </Grid>
+
+
+                        </Grid>
+
+
+                    </TabItem>
+                    <TabItem Header="Løsning">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBox Grid.Row="0" Text="Vise Løsningen" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Height="150"  Text="Hints" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="2" Text="Script Text" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!--Execute Button Fix-->
+                                <Button Grid.Column="2" Width="80" Height="40" Content="Start" Click="RetFejl_Click" />
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding CurrentTime}"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+
+
+
+
+            </TabItem>
+            <TabItem Header="Sæt 2"
+                     x:Name="Set2ItemTab">
+
+            </TabItem>
+            <TabItem Header="Sæt 3"
+                     x:Name="Set3ItemTab">
+
+            </TabItem>
+            <TabItem Header="Sæt 4"
+                     x:Name="Set4ItemTab">
+
+            </TabItem>
+            <TabItem Header=" Sæt 5"
+                     x:Name="Set5ItemTab">
+
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
