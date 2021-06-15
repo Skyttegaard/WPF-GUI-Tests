@@ -48,10 +48,12 @@
                                       HeadersVisibility="Column"
                                       CanUserAddRows="False"
                                       CanUserDeleteRows="False"
+                                      ItemsSource="{Binding TESTSTRINGS}"
                                       VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="2">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
-                                                         IsReadOnly="True">
+                                                        IsReadOnly="True"
+                                                        Binding="{Binding Path=Name}">
 
                                     </DataGridTextColumn>
                                 </DataGrid.Columns>
