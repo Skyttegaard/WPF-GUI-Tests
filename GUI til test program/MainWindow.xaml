@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
         d:DataContext="{d:DesignInstance viewModels:Viewmodels}"
         mc:Ignorable="d"
+        FontSize="11pt"
         Title="MainWindow" Height="768" Width="1024">
     <Grid>
 
@@ -44,18 +45,19 @@
 
                             </Grid>
                             <DataGrid Grid.Row="1" Grid.Column="0"
-                                       Width="300"
+                                      Width="300"
                                       HeadersVisibility="Column"
                                       CanUserAddRows="False"
                                       CanUserDeleteRows="False"
+                                      AutoGenerateColumns="False"
+                                      IsReadOnly="True"
                                       ItemsSource="{Binding TESTSTRINGS}"
                                       VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="2">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
                                                         IsReadOnly="True"
-                                                        Binding="{Binding Path=Name}">
-
-                                    </DataGridTextColumn>
+                                                        Width="*"
+                                                        Binding="{Binding Path=Name}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
 
@@ -64,7 +66,7 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox Grid.Row="0" Text="Beskrivelse" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
+                                <TextBox Grid.Row="0" Text="{Binding CurrentText}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
                                 <TextBox Grid.Row="1" Text="Script" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
                             </Grid>
                             <Grid Grid.Row="1" Grid.Column="2" Margin="0,616,0,0" Grid.RowSpan="2">

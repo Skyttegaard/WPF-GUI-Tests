@@ -13,6 +13,16 @@ namespace Engine.ViewModels
         private string _currentTime = "00:00";
         private List<TestClass> _TESTSTRINGS;
         public IReadOnlyList<TestClass> TESTSTRINGS => _TESTSTRINGS.AsReadOnly();
+        private string _currentText;
+        public string CurrentText
+        {
+            get => _currentText;
+            set
+            {
+                _currentText = value;
+                OnPropertyChanged();
+            }
+        }
         public Viewmodels()
         {
             _TESTSTRINGS = new List<TestClass>();
@@ -20,10 +30,10 @@ namespace Engine.ViewModels
         }
         private void TestVOIDTING()
         {
-            _TESTSTRINGS.Add(new TestClass("TEST1"));
-            _TESTSTRINGS.Add(new TestClass("TEST2"));
-            _TESTSTRINGS.Add(new TestClass("TEST3"));
-            _TESTSTRINGS.Add(new TestClass("TEST4"));
+            _TESTSTRINGS.Add(new TestClass("TEST1uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu", "Test1"));
+            _TESTSTRINGS.Add(new TestClass("TEST2","test2"));
+            _TESTSTRINGS.Add(new TestClass("TEST3","test3"));
+            _TESTSTRINGS.Add(new TestClass("TEST4","test4"));
         }
         public string CurrentTime
         {
@@ -41,10 +51,12 @@ namespace Engine.ViewModels
     }
     public class TestClass
     {
+        public string Test { get; set; }
         public string Name { get; set; }
-        public TestClass(string name)
+        public TestClass(string name, string test)
         {
             Name  = name;
+            Test = test;
         }
     }
 }

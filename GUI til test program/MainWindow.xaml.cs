@@ -28,21 +28,24 @@ namespace GUI_til_test_program
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         Stopwatch stopWatch = new Stopwatch();
-        Viewmodels ViewModel;
-        
+        Viewmodels ViewModel = new Viewmodels();
+
         public int buttonTimer_Tick { get; private set; }
 
         public MainWindow()
         {
             dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0,  0,  0,  0,  1);
-            ViewModel = new Viewmodels();
             DataContext = ViewModel;
             InitializeComponent();
         }
         
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DataGrid dataGrid = sender as DataGrid;
+            DataGridRow row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
+            DataGridCell rowColumn = dataGrid.Columns[0].GetCellContent(row).Parent as DataGridCell;
+            ViewModel.CurrentText = ((TextBlock)rowColumn.Content).Text;
             
         }
         private void LavFejl_Click(object sender, RoutedEventArgs e)
