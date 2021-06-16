@@ -16,7 +16,7 @@ using System.Windows.Threading;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Timers;
-
+using Engine.Models;
 using Engine.ViewModels;
 
 namespace GUI_til_test_program
@@ -42,11 +42,14 @@ namespace GUI_til_test_program
         
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             DataGrid dataGrid = sender as DataGrid;
-            DataGridRow row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
-            DataGridCell rowColumn = dataGrid.Columns[0].GetCellContent(row).Parent as DataGridCell;
-            ViewModel.CurrentText = ((TextBlock)rowColumn.Content).Text;
-            
+            JobScripts jobScripts = dataGrid.SelectedItem as JobScripts;
+            if (jobScripts != null)
+            {
+                ViewModel.ChangeDescriptions(jobScripts);
+                
+            }
         }
         private void LavFejl_Click(object sender, RoutedEventArgs e)
         {

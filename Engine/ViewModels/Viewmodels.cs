@@ -6,34 +6,94 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Timers;
 using System.Windows;
+using Engine.Models;
 namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
     {
         private string _currentTime = "00:00";
-        private List<TestClass> _TESTSTRINGS;
-        public IReadOnlyList<TestClass> TESTSTRINGS => _TESTSTRINGS.AsReadOnly();
-        private string _currentText;
-        public string CurrentText
+        private string _title;
+        private string _description;
+        private string _scriptFail;
+        private string _solution;
+        private string _hints;
+        private string _scriptFix;
+        public string Title
         {
-            get => _currentText;
+            get => _title;
             set
             {
-                _currentText = value;
+                _title = value;
                 OnPropertyChanged();
             }
         }
+        public string Description
+        {
+            get => _description;
+            set
+            {
+                _description = value;
+                OnPropertyChanged();
+            }
+        }
+        public string ScriptFail
+        {
+            get => _scriptFail;
+            set
+            {
+                _scriptFail = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Solution
+        {
+            get => _solution;
+            set
+            {
+                _solution = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Hints
+        {
+            get => _hints;
+            set
+            {
+                _hints = value;
+                OnPropertyChanged();
+            }
+        }
+        public string ScriptFix
+        {
+            get => _scriptFix;
+            set
+            {
+                _scriptFix = value;
+                OnPropertyChanged();
+            }
+        }
+        public List<JobScripts> _jobs { get; private set; }
+        public IReadOnlyList<JobScripts> Jobs => _jobs.AsReadOnly();
         public Viewmodels()
         {
-            _TESTSTRINGS = new List<TestClass>();
+            
+            _jobs = new List<JobScripts>();
             TestVOIDTING();
         }
         private void TestVOIDTING()
         {
-            _TESTSTRINGS.Add(new TestClass("TEST1uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu", "Test1"));
-            _TESTSTRINGS.Add(new TestClass("TEST2","test2"));
-            _TESTSTRINGS.Add(new TestClass("TEST3","test3"));
-            _TESTSTRINGS.Add(new TestClass("TEST4","test4"));
+            _jobs.Add(new JobScripts("TestTitel1", "TestDescription1", "TestScriptFail1", "TestSolution1", "TestHints1", "TestScriptFix1"));
+            _jobs.Add(new JobScripts("TestTitel2", "TestDescription2", "TestScriptFail2", "TestSolution2", "TestHints2", "TestScriptFix2"));
+            _jobs.Add(new JobScripts("TestTitel3", "TestDescription3", "TestScriptFail3", "TestSolution3", "TestHints3", "TestScriptFix3"));
+            _jobs.Add(new JobScripts("TestTitel4", "TestDescription4", "TestScriptFail4", "TestSolution4", "TestHints4", "TestScriptFix4"));
+        }
+        public void ChangeDescriptions(JobScripts jobScripts)
+        {
+            Description = jobScripts.Description;
+            ScriptFail = jobScripts.ScriptFail;
+            Solution = jobScripts.Solution;
+            Hints = jobScripts.Hints;
+            ScriptFix = jobScripts.ScriptFix;
         }
         public string CurrentTime
         {
@@ -49,15 +109,6 @@ namespace Engine.ViewModels
         }
 
     }
-    public class TestClass
-    {
-        public string Test { get; set; }
-        public string Name { get; set; }
-        public TestClass(string name, string test)
-        {
-            Name  = name;
-            Test = test;
-        }
-    }
+    
 }
 
