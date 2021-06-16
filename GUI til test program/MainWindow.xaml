@@ -11,17 +11,16 @@
         Title="MainWindow" Height="768" Width="1024">
     <Grid>
 
-        <TabControl x:Name="SetDataTabControl"
-                    >
-
-            <TabItem Header="Sæt 1"
+        <TabControl x:Name="SetDataTabControl">
+             <TabItem Header="Sæt 1"
                      x:Name="Set1ItemTab">
                 <TabControl>
                     <TabItem Header="Job">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="63"/>
-                                <ColumnDefinition Width="237"/>
+                                <ColumnDefinition Width="19"/>
+                                <ColumnDefinition Width="218"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -29,7 +28,18 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Grid Grid.Row="0" Grid.Column="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding StartTid, StringFormat=Start: {0}}"/>
+                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding SlutTid, StringFormat=Slut: {0}}"/>
+                                <TextBox Grid.Column="3" Height="40" Width="120" IsReadOnly="True" HorizontalAlignment="Right" Text="{Binding CurrentTime, StringFormat=Tid: {0}}"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -39,29 +49,25 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <ComboBox Grid.Row="0" Grid.Column="0"  Width="80" Height="40" HorizontalAlignment="Left"/>
-
                                 <ComboBox Grid.Row="0" Grid.Column="1" Width="80" Height="40" HorizontalAlignment="Left"/>
-
-
                             </Grid>
                             <DataGrid Grid.Row="1" Grid.Column="0"
-                                      Width="300"
-                                      HeadersVisibility="Column"
-                                      CanUserAddRows="False"
-                                      CanUserDeleteRows="False"
-                                      AutoGenerateColumns="False"
-                                      IsReadOnly="True"
-                                      ItemsSource="{Binding Jobs}"
-                                      VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="2">
+                                    Width="300"
+                                    HeadersVisibility="Column"
+                                    CanUserAddRows="False"
+                                    CanUserDeleteRows="False"
+                                    AutoGenerateColumns="False"
+                                    IsReadOnly="True"
+                                    ItemsSource="{Binding Jobs}"
+                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
-                                                        IsReadOnly="True"
-                                                        Width="*"
-                                                        Binding="{Binding Path=Title}"/>
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding Path=Title}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-
-                            <Grid Grid.Row="1" Grid.Column="2" >
+                            <Grid Grid.Row="1" Grid.Column="3" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
@@ -69,55 +75,55 @@
                                 <TextBox Grid.Row="0" Text="{Binding Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
                                 <TextBox Grid.Row="1" Text="{Binding ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
                             </Grid>
-                            <Grid Grid.Row="1" Grid.Column="2" Margin="0,616,0,0" Grid.RowSpan="2">
+                            <Grid Grid.Row="2" Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Execute Button & Timer -->
-                                <Button Grid.Column="2" Width="80" Height="40" Content="Start" Click="LavFejl_Click" x:Name="LavFejl_Button"/>
-                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding CurrentTime}" IsReadOnly="True"/>
+                                <Button Grid.Column="3" Width="80" Height="40" Content="Start" Click="LavFejl_Click" x:Name="LavFejl_Button" HorizontalAlignment="Right"/>
                             </Grid>
-
-
                         </Grid>
-
-
                     </TabItem>
                     <TabItem Header="Løsning">
                         <Grid>
-
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-
-                            <TextBox Grid.Row="0" Text="{Binding Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="1" Height="150"  Text="{Binding Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="2" Text="{Binding ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding CurrentTime, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding SlutTid, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding StartTid, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                            </Grid>
+                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <Grid Grid.Row="3" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Execute Button Fix-->
                                 <Button Grid.Column="2" Width="80" Height="40" Content="Start" Click="RetFejl_Click" />
-                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding CurrentTime}"/>
                             </Grid>
                         </Grid>
                     </TabItem>
                 </TabControl>
-
-
-
-
-                
-                
-                
             </TabItem>
             <TabItem Header="Sæt 2"
                      x:Name="Set2ItemTab">
@@ -270,6 +276,7 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
+                                
                                 <TextBox Grid.Row="0" Text="{Binding Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
                                 <TextBox Grid.Row="1" Text="{Binding ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
                             </Grid>
@@ -316,11 +323,11 @@
                     </TabItem>
                 </TabControl>
 
-                
-                
-                
-                
-                
+
+
+
+
+
             </TabItem>
             <TabItem Header="Sæt 4"
                      x:Name="Set4ItemTab">
@@ -420,11 +427,11 @@
                     </TabItem>
                 </TabControl>
 
-                
-                
-                
-                
-                
+
+
+
+
+
             </TabItem>
             <TabItem Header=" Sæt 5"
                      x:Name="Set5ItemTab">

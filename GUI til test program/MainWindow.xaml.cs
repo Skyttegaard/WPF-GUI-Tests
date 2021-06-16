@@ -56,10 +56,12 @@ namespace GUI_til_test_program
             stopWatch.Start();
             dispatcherTimer.Start();
             DelayButton(sender,e);
+            ViewModel.SetStartTid();
         }
         private void RetFejl_Click(object sender, RoutedEventArgs e)
         {
             DelayButton(sender,  e);
+            ViewModel.SetSlutTid();
         }
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {

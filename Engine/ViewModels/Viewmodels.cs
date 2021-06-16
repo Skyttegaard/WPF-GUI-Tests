@@ -11,6 +11,8 @@ namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
     {
+        private string _startTid = "00:00";
+        private string _slutTid = "00:00";
         private string _currentTime = "00:00";
         private string _title;
         private string _description;
@@ -71,6 +73,32 @@ namespace Engine.ViewModels
                 _scriptFix = value;
                 OnPropertyChanged();
             }
+        }
+        public string StartTid
+        {
+            get => _startTid;
+            set
+            {
+                _startTid = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SlutTid
+        {
+            get => _slutTid;
+            set
+            {
+                _slutTid = value;
+                OnPropertyChanged();
+            }
+        }
+        public void SetStartTid()
+        {
+            StartTid = DateTime.Now.ToString("HH:mm");
+        }
+        public void SetSlutTid()
+        {
+            SlutTid = DateTime.Now.ToString("HH:mm");
         }
         public List<JobScripts> _jobs { get; private set; }
         public IReadOnlyList<JobScripts> Jobs => _jobs.AsReadOnly();
