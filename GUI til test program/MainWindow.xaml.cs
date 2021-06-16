@@ -30,7 +30,7 @@ namespace GUI_til_test_program
         Stopwatch stopWatch = new Stopwatch();
         Viewmodels ViewModel = new Viewmodels();
 
-        public int buttonTimer_Tick { get; private set; }
+        
 
         public MainWindow()
         {

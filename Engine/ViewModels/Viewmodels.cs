@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Timers;
 using System.Windows;
 using Engine.Models;
+using Engine.Factories;
 namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
@@ -102,7 +103,7 @@ namespace Engine.ViewModels
         }
         public List<JobScripts> _jobs { get; private set; }
         public IReadOnlyList<JobScripts> Jobs => _jobs.AsReadOnly();
-        public Viewmodels()
+        public Viewmodels() 
         {
             
             _jobs = new List<JobScripts>();
@@ -110,10 +111,10 @@ namespace Engine.ViewModels
         }
         private void TestVOIDTING()
         {
-            _jobs.Add(new JobScripts("TestTitel1", "TestDescription1", "TestScriptFail1", "TestSolution1", "TestHints1", "TestScriptFix1"));
-            _jobs.Add(new JobScripts("TestTitel2", "TestDescription2", "TestScriptFail2", "TestSolution2", "TestHints2", "TestScriptFix2"));
-            _jobs.Add(new JobScripts("TestTitel3", "TestDescription3", "TestScriptFail3", "TestSolution3", "TestHints3", "TestScriptFix3"));
-            _jobs.Add(new JobScripts("TestTitel4", "TestDescription4", "TestScriptFail4", "TestSolution4", "TestHints4", "TestScriptFix4"));
+            _jobs.Add(new JobScripts("TestTitel1", TextFileReader.GetTextFile(0), "TestScriptFail1", "TestSolution1", "TestHints1", "TestScriptFix1"));
+            _jobs.Add(new JobScripts("TestTitel2", TextFileReader.GetTextFile(1), "TestScriptFail2", "TestSolution2", "TestHints2", "TestScriptFix2"));
+            _jobs.Add(new JobScripts("TestTitel3", TextFileReader.GetTextFile(2), "TestScriptFail3", "TestSolution3", "TestHints3", "TestScriptFix3"));
+            _jobs.Add(new JobScripts("TestTitel4", TextFileReader.GetTextFile(3), "TestScriptFail4", "TestSolution4", "TestHints4", "TestScriptFix4"));
         }
         public void ChangeDescriptions(JobScripts jobScripts)
         {
@@ -132,9 +133,7 @@ namespace Engine.ViewModels
                 OnPropertyChanged();
             }
         }
-        public void ButtonTimeout()
-        {
-        }
+        
 
     }
     
