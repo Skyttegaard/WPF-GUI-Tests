@@ -4,40 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Engine.Models;
 
 
 namespace Engine.Factories
 {
     public static class TextFileReader
     {
-        private const string TEXT_DATA_FILENAME = ".\\Tekstfiler\\TestText.txt";
+        private const string DATA_FOLDERNAME = ".\\Tekstfiler\\";
         private static List<string> _textFiles = new List<string>();
-        private const string datating = ".\\Tekstfiler\\";
+        private static List<string> _textFilesDescription = new List<string>();
 
 
         static TextFileReader()
         {
-            TestTing();
-            if (File.Exists(TEXT_DATA_FILENAME))
+            
+            if (Directory.Exists(DATA_FOLDERNAME))
             {
-                //_textFiles = File.ReadAllText(TEXT_DATA_FILENAME);
+                ReadDirectoryFiles();
             }
             else
             {
-                throw new FileNotFoundException($"Missing data file: {TEXT_DATA_FILENAME}");
+                throw new FileNotFoundException($"Missing directory: {DATA_FOLDERNAME}");
             }
         }
-        public static string GetTextFile(int input)
+        public static List<JobScripts> ReadJobScripts()
         {
-            return _textFiles[input];
-        }
+            List<JobScripts> jobScripts = new List<JobScripts>();
+            for(int i = 0; i < _textFiles.Count; i++)
+            {
+                //Skal have flere lists til de andre textfiler.
+                jobScripts.Add(new JobScripts(_textFiles[i], _textFilesDescription[i], _textFiles[i], _textFiles[i], _textFiles[i], _textFiles[i]));
 
-        public static void TestTing()
+            }
+            return jobScripts;
+        }
+        public static void ReadDirectoryFiles()
         {
-            DirectoryInfo d = new DirectoryInfo(datating);
-            foreach (var file in d.GetFiles("*.txt"))
+            DirectoryInfo d = new DirectoryInfo(DATA_FOLDERNAME);
+            foreach (FileInfo file in d.GetFiles("TestText*.txt"))
             {
                 _textFiles.Add(File.ReadAllText(file.FullName)); 
+            }
+            foreach(FileInfo file in d.GetFiles("TestDescription?.txt"))
+            {
+                _textFilesDescription.Add(File.ReadAllText(file.FullName));
             }
         }
     }

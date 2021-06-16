@@ -105,17 +105,11 @@ namespace Engine.ViewModels
         public IReadOnlyList<JobScripts> Jobs => _jobs.AsReadOnly();
         public Viewmodels() 
         {
+
+            _jobs = TextFileReader.ReadJobScripts();
             
-            _jobs = new List<JobScripts>();
-            TestVOIDTING();
         }
-        private void TestVOIDTING()
-        {
-            _jobs.Add(new JobScripts("TestTitel1", TextFileReader.GetTextFile(0), "TestScriptFail1", "TestSolution1", "TestHints1", "TestScriptFix1"));
-            _jobs.Add(new JobScripts("TestTitel2", TextFileReader.GetTextFile(1), "TestScriptFail2", "TestSolution2", "TestHints2", "TestScriptFix2"));
-            _jobs.Add(new JobScripts("TestTitel3", TextFileReader.GetTextFile(2), "TestScriptFail3", "TestSolution3", "TestHints3", "TestScriptFix3"));
-            _jobs.Add(new JobScripts("TestTitel4", TextFileReader.GetTextFile(3), "TestScriptFail4", "TestSolution4", "TestHints4", "TestScriptFix4"));
-        }
+        
         public void ChangeDescriptions(JobScripts jobScripts)
         {
             Description = jobScripts.Description;
