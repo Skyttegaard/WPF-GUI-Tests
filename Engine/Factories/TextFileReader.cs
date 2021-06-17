@@ -13,10 +13,12 @@ namespace Engine.Factories
     public static class TextFileReader
     {
         private const string DATA_FOLDERNAME = ".\\Forløb\\";
-        private static List<string> _textFiles = new List<string>();
-        private static List<string> _textFilesDescription = new List<string>();
-
-
+        private static List<string> _textFiles = new();
+        private static List<string> _textFilesBeskrivelse = new();
+        private static List<string> _textFilesHints = new();
+        private static List<string> _textFilesLøsning = new();
+        private static List<string> _textFilesLøsningScript = new();
+        private static List<string> _textFilesFejlScript = new();
         static TextFileReader()
         {
             
@@ -33,12 +35,12 @@ namespace Engine.Factories
   
         public static List<JobScripts> ReadJobScripts()
         {
-            List<JobScripts> jobScripts = new List<JobScripts>();
+            List<JobScripts> jobScripts = new();
             
-            for(int i = 0; i < _textFiles.Count; i++)
+            for(int i = 0; i < _textFilesBeskrivelse.Count; i++)
             {
                 //Skal have flere lists til de andre textfiler.
-                jobScripts.Add(new JobScripts(_textFiles[i], _textFilesDescription[i], _textFiles[i], _textFiles[i], _textFiles[i], _textFiles[i]));
+                jobScripts.Add(new JobScripts(_textFiles[i], _textFilesBeskrivelse[i], _textFilesFejlScript[i], _textFilesLøsning[i], _textFilesHints[i], _textFilesLøsningScript[i]));
 
             }
             return jobScripts;
@@ -51,27 +53,56 @@ namespace Engine.Factories
             {
                 foreach(DirectoryInfo dinfo in di.GetDirectories())
                 {
-                    foreach(FileInfo file in dinfo.GetFiles("TestText?.txt"))
+                    foreach(FileInfo file in dinfo.GetFiles("Opgave-?.Beskrivelse.txt"))
                     {
+                        _textFiles.Add(file.Name.Substring(0,8));
                         if(file.Directory.Name == "Alle")
                         {
-                            _textFiles.Add(File.ReadAllText(file.FullName));
-                            
+                            _textFilesBeskrivelse.Add(File.ReadAllText(file.FullName));   
                         }
-                        
                     }
-                    foreach(FileInfo file in dinfo.GetFiles("TestDescription?.txt"))
+                    foreach(FileInfo file in dinfo.GetFiles("Opgave-?.Hints.txt"))
                     {
                         if(file.Directory.Name == "Alle")
                         {
-                            _textFilesDescription.Add(File.ReadAllText(file.FullName));
+                            _textFilesHints.Add(File.ReadAllText(file.FullName));
                             
                         }
-                        
+                    }
+                    foreach(FileInfo file in dinfo.GetFiles("Opgave-?.Løsning.txt"))
+                    {
+                        if(file.Directory.Name == "Alle")
+                        {
+                            _textFilesLøsning.Add(File.ReadAllText(file.FullName));
+                        }
+                    }
+                    foreach(FileInfo file in dinfo.GetFiles("Opgave-?.Løsning-Script.txt"))
+                    {
+                        if(file.Directory.Name == "Alle")
+                        {
+                            _textFilesLøsningScript.Add(File.ReadAllText(file.FullName));
+                        }
+                    }
+                    foreach(FileInfo file in dinfo.GetFiles("Opgave-?.Fejl-Script.txt"))
+                    {
+                        if(file.Directory.Name == "Alle")
+                        {
+                            _textFilesFejlScript.Add(File.ReadAllText(file.FullName));
+                        }
                     }
                 }
             }
             
+        }
+        public static List<string> Forløb()
+        {
+            DirectoryInfo d = new DirectoryInfo(DATA_FOLDERNAME);
+            List<string> st = new();
+            foreach(DirectoryInfo di in d.GetDirectories())
+            {
+                st.Add(di.Name);
+            }
+            return st;
         }
     }
 }

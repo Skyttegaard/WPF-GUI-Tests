@@ -59,6 +59,7 @@
                                     CanUserDeleteRows="False"
                                     AutoGenerateColumns="False"
                                     IsReadOnly="True"
+                                    CanUserSortColumns="False"
                                     ItemsSource="{Binding Jobs}"
                                     VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>

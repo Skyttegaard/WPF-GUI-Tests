@@ -108,6 +108,7 @@ namespace Engine.ViewModels
 
             _jobs = TextFileReader.ReadJobScripts();
             
+            
         }
         
         public void ChangeDescriptions(JobScripts jobScripts)
