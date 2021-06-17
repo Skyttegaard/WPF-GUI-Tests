@@ -78,7 +78,16 @@ namespace GUI_til_test_program
             element.IsEnabled = false;
             await Task.Delay(5000);
             element.IsEnabled = true;
+        } 
+        private void StopTid_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (stopWatch.IsRunning)
+            {
+                stopWatch.Stop();
+                stopWatch.Reset();
+                ViewModel.CurrentTime = "00:00";
+                ViewModel.SetSlutTid();
+            }
         }
-        
     }
 }

@@ -81,10 +81,11 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="95"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Execute Button & Timer -->
                                 <Button Grid.Column="3" Width="80" Height="40" Content="Start" Click="LavFejl_Click" x:Name="LavFejl_Button" HorizontalAlignment="Right"/>
+                                <Button Grid.Column="2" Width="80" Height="40" Content="Stop" Click="StopTid_OnClick" x:Name="StopTid_Button" HorizontalAlignment="Right"/>
                             </Grid>
                         </Grid>
                     </TabItem>
@@ -118,9 +119,11 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="95"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Execute Button Fix-->
-                                <Button Grid.Column="2" Width="80" Height="40" Content="Start" Click="RetFejl_Click" />
+                                <Button Grid.Column="2" Width="80" Height="40" Content="Start" Click="RetFejl_Click" HorizontalAlignment="Right" />
+                                <Button Grid.Column="1" Width="80" Height="40" Content="Stop" Click="StopTid_OnClick" x:Name="StopTid2_Button" HorizontalAlignment="Right"/>
                             </Grid>
                         </Grid>
                     </TabItem>
