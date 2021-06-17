@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Engine.Models;
+using System.Collections.ObjectModel;
 
 
 namespace Engine.Factories
 {
     public static class TextFileReader
     {
-        private const string DATA_FOLDERNAME = ".\\Tekstfiler\\";
+        private const string DATA_FOLDERNAME = ".\\Forløb\\";
         private static List<string> _textFiles = new List<string>();
         private static List<string> _textFilesDescription = new List<string>();
 
@@ -28,9 +29,12 @@ namespace Engine.Factories
                 throw new FileNotFoundException($"Missing directory: {DATA_FOLDERNAME}");
             }
         }
+
+  
         public static List<JobScripts> ReadJobScripts()
         {
             List<JobScripts> jobScripts = new List<JobScripts>();
+            
             for(int i = 0; i < _textFiles.Count; i++)
             {
                 //Skal have flere lists til de andre textfiler.
@@ -42,14 +46,32 @@ namespace Engine.Factories
         public static void ReadDirectoryFiles()
         {
             DirectoryInfo d = new DirectoryInfo(DATA_FOLDERNAME);
-            foreach (FileInfo file in d.GetFiles("TestText*.txt"))
+
+            foreach(DirectoryInfo di in d.GetDirectories())
             {
-                _textFiles.Add(File.ReadAllText(file.FullName)); 
+                foreach(DirectoryInfo dinfo in di.GetDirectories())
+                {
+                    foreach(FileInfo file in dinfo.GetFiles("TestText?.txt"))
+                    {
+                        if(file.Directory.Name == "Alle")
+                        {
+                            _textFiles.Add(File.ReadAllText(file.FullName));
+                            
+                        }
+                        
+                    }
+                    foreach(FileInfo file in dinfo.GetFiles("TestDescription?.txt"))
+                    {
+                        if(file.Directory.Name == "Alle")
+                        {
+                            _textFilesDescription.Add(File.ReadAllText(file.FullName));
+                            
+                        }
+                        
+                    }
+                }
             }
-            foreach(FileInfo file in d.GetFiles("TestDescription?.txt"))
-            {
-                _textFilesDescription.Add(File.ReadAllText(file.FullName));
-            }
+            
         }
     }
 }

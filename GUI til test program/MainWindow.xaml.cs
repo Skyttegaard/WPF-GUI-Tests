@@ -87,6 +87,8 @@ namespace GUI_til_test_program
                 stopWatch.Reset();
                 ViewModel.CurrentTime = "00:00";
                 ViewModel.SetSlutTid();
+
+                DelayButton(sender, e);
             }
         }
     }

@@ -9,12 +9,30 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Tekstfiler\TestText.txt">
+    <None Update="Forløb\GF\Alle\dontread.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
+    </None>
+    <None Update="Forløb\GF\Alle\TestDescription1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Alle\TestDescription2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Alle\TestDescription3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Alle\TestDescription4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Alle\TestText2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Alle\TestText3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Alle\TestText4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Tekstfiler\dontread.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -39,6 +57,34 @@
     <None Update="Tekstfiler\TestText4.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Forløb\Ekstra\Alle\" />
+    <Folder Include="Forløb\Ekstra\Basis netværk\" />
+    <Folder Include="Forløb\Ekstra\EIGRP\" />
+    <Folder Include="Forløb\Ekstra\Klienter\" />
+    <Folder Include="Forløb\Ekstra\OSPF\" />
+    <Folder Include="Forløb\Ekstra\Server\" />
+    <Folder Include="Forløb\GF\Basis netværk\" />
+    <Folder Include="Forløb\GF\Klienter\" />
+    <Folder Include="Forløb\GF\Server\" />
+    <Folder Include="Forløb\H1\Alle\" />
+    <Folder Include="Forløb\H1\Basis netværk\" />
+    <Folder Include="Forløb\H1\Klienter\" />
+    <Folder Include="Forløb\H1\Server\" />
+    <Folder Include="Forløb\H2\Alle\" />
+    <Folder Include="Forløb\H2\Basis netværk\" />
+    <Folder Include="Forløb\H2\Klienter\" />
+    <Folder Include="Forløb\H2\EIGRP\" />
+    <Folder Include="Forløb\H2\OSPF\" />
+    <Folder Include="Forløb\H2\Server\" />
+    <Folder Include="Forløb\Svendeprøve\Alle\" />
+    <Folder Include="Forløb\Svendeprøve\Basis netværk\" />
+    <Folder Include="Forløb\Svendeprøve\EIGRP\" />
+    <Folder Include="Forløb\Svendeprøve\Klienter\" />
+    <Folder Include="Forløb\Svendeprøve\OSPF\" />
+    <Folder Include="Forløb\Svendeprøve\Server\" />
   </ItemGroup>
 
 </Project>
