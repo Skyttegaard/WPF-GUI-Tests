@@ -21,6 +21,7 @@ namespace Engine.ViewModels
         private string _solution;
         private string _hints;
         private string _scriptFix;
+
         public string Title
         {
             get => _title;
@@ -101,11 +102,18 @@ namespace Engine.ViewModels
         {
             SlutTid = DateTime.Now.ToString("HH:mm");
         }
-        public List<JobScripts> _jobs { get; private set; }
-        public IReadOnlyList<JobScripts> Jobs => _jobs.AsReadOnly();
+        public string JobForløb { get; set; }
+        public string JobKategori { get; set; }
+        private List<JobScripts> _jobs { get; set; }
+        public IReadOnlyList<JobScripts> Jobs => _jobs.FindOpgaver(TextFileReader.FindJobForløb(JobForløb), TextFileReader.FindJobKategori(JobKategori));
+        private List<string> _forløb { get; set; }
+        public IReadOnlyList<string> Forløb => _forløb.AsReadOnly();
+        private List<string> _kategori { get; set; }
+        public IReadOnlyList<string> Kategori => _kategori.AsReadOnly();
         public Viewmodels() 
         {
-
+            _kategori = TextFileReader.GetKategori();
+            _forløb = TextFileReader.GetForløb();
             _jobs = TextFileReader.ReadJobScripts();
             
             

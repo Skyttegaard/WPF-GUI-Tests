@@ -54,19 +54,19 @@
     <None Update="Forløb\GF\Alle\Opgave 3\Opgave-3.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Forløb\GF\Alle\Opgave-4.Beskrivelse.txt">
+    <None Update="Forløb\GF\Alle\Opgave 4\Opgave-4.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Forløb\GF\Alle\Opgave-4.Fejl-Script.txt">
+    <None Update="Forløb\GF\Alle\Opgave 4\Opgave-4.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Forløb\GF\Alle\Opgave-4.Hints.txt">
+    <None Update="Forløb\GF\Alle\Opgave 4\Opgave-4.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Forløb\GF\Alle\Opgave-4.Løsning-Script.txt">
+    <None Update="Forløb\GF\Alle\Opgave 4\Opgave-4.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Forløb\GF\Alle\Opgave-4.Løsning.txt">
+    <None Update="Forløb\GF\Alle\Opgave 4\Opgave-4.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Alle\TestDescription1.txt">
@@ -91,6 +91,51 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Alle\TestText4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Tekstfiler\dontread.txt">
@@ -126,10 +171,6 @@
     <Folder Include="Forløb\Ekstra\Klienter\" />
     <Folder Include="Forløb\Ekstra\OSPF\" />
     <Folder Include="Forløb\Ekstra\Server\" />
-    <Folder Include="Forløb\GF\Alle\Opgave 4\" />
-    <Folder Include="Forløb\GF\Basis netværk\" />
-    <Folder Include="Forløb\GF\Klienter\" />
-    <Folder Include="Forløb\GF\Server\" />
     <Folder Include="Forløb\H1\Alle\" />
     <Folder Include="Forløb\H1\Basis netværk\" />
     <Folder Include="Forløb\H1\Klienter\" />
