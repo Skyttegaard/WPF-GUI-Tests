@@ -14,9 +14,31 @@ namespace Engine.Models
         public string Hints { get; }
         public string ScriptFix { get; }
         public string Title {get;}
-
-        public JobScripts(string title, string description, string scriptFail, string solution, string hints, string scriptFix)
+        public enum JobForløb
         {
+            GF,
+            H1,
+            H2,
+            Ekstra,
+            Svendeprøve
+        }
+        public enum JobKategori
+        {
+            Alle,
+            Basisnetværk,
+            EIGRP,
+            Klienter,
+            OSPF,
+            Server
+        }
+
+        public JobKategori Kategori { get ;  }
+        public JobForløb Forløb { get; }
+
+        public JobScripts(JobForløb forløb, JobKategori kategori, string title, string description, string scriptFail, string solution, string hints, string scriptFix)
+        {
+            Forløb = forløb;
+            Kategori = kategori;
             Title = title;
             Description = description;
             ScriptFail = scriptFail;

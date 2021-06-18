@@ -13,5 +13,6 @@ namespace GUI_til_test_program
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
