@@ -35,7 +35,7 @@ namespace GUI_til_test_program
         public MainWindow()
         {
             dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0,  0,  0,  0,  1);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             DataContext = ViewModel;
             InitializeComponent();
         }
@@ -55,7 +55,7 @@ namespace GUI_til_test_program
         {
             stopWatch.Start();
             dispatcherTimer.Start();
-            DelayButton(sender,e);
+            DelayButton(sender, e);
             ViewModel.SetStartTid();
         }
         private void RetFejl_Click(object sender, RoutedEventArgs e)

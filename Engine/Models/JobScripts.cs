@@ -31,7 +31,7 @@ namespace Engine.Models
             OSPF,
             Server
         }
-
+        
         public JobKategori Kategori { get ;  }
         public JobForløb Forløb { get; }
 
@@ -45,6 +45,7 @@ namespace Engine.Models
             Solution = solution;
             Hints = hints;
             ScriptFix = scriptFix;
+
         }
     }
 }

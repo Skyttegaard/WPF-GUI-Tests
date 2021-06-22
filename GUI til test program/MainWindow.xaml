@@ -49,8 +49,8 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <ComboBox Grid.Row="0" Grid.Column="0"  Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Forløb}" SelectedItem="{Binding JobKategori}"/>
-                                <ComboBox Grid.Row="0" Grid.Column="1" Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Kategori}" SelectedItem="{Binding JobForløb}"/>
+                                <ComboBox Grid.Row="0" Grid.Column="0"  Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Forløb}" SelectedItem="{Binding JobForløb}"/>
+                                <ComboBox Grid.Row="0" Grid.Column="1" Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Kategori}" SelectedItem="{Binding JobKategori}"/>
                             </Grid>
                             <DataGrid Grid.Row="1" Grid.Column="0"
                                     Width="300"

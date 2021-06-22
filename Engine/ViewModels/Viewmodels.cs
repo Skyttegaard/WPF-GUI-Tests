@@ -102,10 +102,31 @@ namespace Engine.ViewModels
         {
             SlutTid = DateTime.Now.ToString("HH:mm");
         }
-        public string JobForløb { get; set; }
-        public string JobKategori { get; set; }
+        private string _jobForløb;
+        public string JobForløb
+        {
+            get => _jobForløb;
+            set
+            {
+                _jobForløb = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(Jobs));
+            }
+        }
+        private string _jobKategori;
+        public string JobKategori
+        {
+            get => _jobKategori;
+            set
+            {
+                _jobKategori = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(Jobs));
+            }
+        }
         private List<JobScripts> _jobs { get; set; }
-        public IReadOnlyList<JobScripts> Jobs => _jobs.FindOpgaver(TextFileReader.FindJobForløb(JobForløb), TextFileReader.FindJobKategori(JobKategori));
+        public IReadOnlyList<JobScripts> Jobs => _jobs.FindOpgaver(TextFileReader.FindJobForløb(_jobForløb), TextFileReader.FindJobKategori(_jobKategori));
+        
         private List<string> _forløb { get; set; }
         public IReadOnlyList<string> Forløb => _forløb.AsReadOnly();
         private List<string> _kategori { get; set; }
@@ -115,8 +136,6 @@ namespace Engine.ViewModels
             _kategori = TextFileReader.GetKategori();
             _forløb = TextFileReader.GetForløb();
             _jobs = TextFileReader.ReadJobScripts();
-            
-            
         }
         
         public void ChangeDescriptions(JobScripts jobScripts)

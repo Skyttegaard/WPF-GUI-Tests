@@ -53,6 +53,7 @@ namespace Engine.Factories
             string solution = "solution";
             string solutionScript = "solutionscript";
             string failScript = "failscript";
+            _kategori.Add("Alle");
             foreach(DirectoryInfo di in d.GetDirectories())
             {
                 forløbFolder = di.Name;
@@ -84,27 +85,30 @@ namespace Engine.Factories
                         }
                         _jobScripts.Add(new JobScripts(FindJobForløb(forløbFolder), FindJobKategori(kategoriFolder), opgaveNavn, description, failScript, solution, hints, solutionScript));
                     }
-                    _kategori.Add(kategoriFolder);
-                   
+                    if (!_kategori.Contains(kategoriFolder))
+                    {
+                        _kategori.Add(kategoriFolder);
+                    }
                 }
-                _forløb.Add(forløbFolder);
+                if (!_forløb.Contains(forløbFolder))
+                {
+                    _forløb.Add(forløbFolder);
+                }
             }
             
         }
-        public static List<string> Forløb()
-        {
-            DirectoryInfo d = new DirectoryInfo(DATA_FOLDERNAME);
-            List<string> st = new();
-            foreach(DirectoryInfo di in d.GetDirectories())
-            {
-                st.Add(di.Name);
-            }
-            return st;
-        }
+        
 
         public static List<JobScripts> FindOpgaver(this IEnumerable<JobScripts> scripts, JobScripts.JobForløb forløb, JobScripts.JobKategori kategori)
         {
-            return scripts.Where(s => s.Kategori == kategori && s.Forløb == forløb).ToList();
+            if (kategori == JobScripts.JobKategori.Alle)
+            {
+                return FindOpgaver(scripts, forløb);
+            }
+            else
+            {
+                return scripts.Where(s => s.Kategori == kategori && s.Forløb == forløb).ToList();
+            }
         }
         public static List<JobScripts> FindOpgaver(this IEnumerable<JobScripts> scripts, JobScripts.JobForløb forløb)
         {
@@ -134,7 +138,7 @@ namespace Engine.Factories
             {
                 case "Alle":
                     return JobScripts.JobKategori.Alle;
-                case "Basisnetværk":
+                case "Basis netværk":
                     return JobScripts.JobKategori.Basisnetværk;
                 case "EIGRP":
                     return JobScripts.JobKategori.EIGRP;
