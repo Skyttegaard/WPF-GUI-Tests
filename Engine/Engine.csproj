@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Tekstfiler\TestText.txt" />
+    <Compile Remove="Forløb\Ekstra\Alle\**" />
+    <Compile Remove="Forløb\H2\Alle\**" />
+    <Compile Remove="Forløb\Svendeprøve\Alle\**" />
+    <EmbeddedResource Remove="Forløb\Ekstra\Alle\**" />
+    <EmbeddedResource Remove="Forløb\H2\Alle\**" />
+    <EmbeddedResource Remove="Forløb\Svendeprøve\Alle\**" />
+    <None Remove="Forløb\Ekstra\Alle\**" />
+    <None Remove="Forløb\H2\Alle\**" />
+    <None Remove="Forløb\Svendeprøve\Alle\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +45,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
@@ -114,51 +137,56 @@
     <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\dontread.txt">
+    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\TestDescription1.txt">
+    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\TestDescription2.txt">
+    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\TestDescription3.txt">
+    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\TestDescription4.txt">
+    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\TestText2.txt">
+    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\TestText3.txt">
+    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Tekstfiler\TestText4.txt">
+    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forløb\Ekstra\Alle\" />
     <Folder Include="Forløb\Ekstra\Basis netværk\" />
     <Folder Include="Forløb\Ekstra\EIGRP\" />
     <Folder Include="Forløb\Ekstra\Klienter\" />
     <Folder Include="Forløb\Ekstra\OSPF\" />
     <Folder Include="Forløb\Ekstra\Server\" />
     <Folder Include="Forløb\H1\" />
-    <Folder Include="Forløb\H2\Alle\" />
     <Folder Include="Forløb\H2\Basis netværk\" />
     <Folder Include="Forløb\H2\Klienter\" />
-    <Folder Include="Forløb\H2\OSPF\" />
     <Folder Include="Forløb\H2\Server\" />
-    <Folder Include="Forløb\Svendeprøve\Alle\" />
     <Folder Include="Forløb\Svendeprøve\Basis netværk\" />
     <Folder Include="Forløb\Svendeprøve\EIGRP\" />
     <Folder Include="Forløb\Svendeprøve\Klienter\" />
-    <Folder Include="Forløb\Svendeprøve\OSPF\" />
     <Folder Include="Forløb\Svendeprøve\Server\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management.Automation" Version="7.1.3" />
   </ItemGroup>
 
 </Project>
