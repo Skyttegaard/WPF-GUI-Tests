@@ -167,6 +167,141 @@
     <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="StartMappe\GF,H1\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 2\Opgave-2.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 2\Opgave-2.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 4\Opgave-4.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 4\Opgave-4.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 4\Opgave-4.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 4\Opgave-4.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Klienter\Opgave 4\Opgave-4.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Server\Opgave 3\Opgave-3.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\GF,H1\Server\Opgave 3\Opgave-3.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\EIGRP\Opgave 1\Opgave-1.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\EIGRP\Opgave 1\Opgave-1.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\EIGRP\Opgave 1\Opgave-1.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\EIGRP\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\EIGRP\Opgave 1\Opgave-1.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Klienter\Opgave 2\Opgave-2.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Klienter\Opgave 2\Opgave-2.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\OSPF\Opgave 2\Opgave-2.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\OSPF\Opgave 2\Opgave-2.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\OSPF\Opgave 2\Opgave-2.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\OSPF\Opgave 2\Opgave-2.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\OSPF\Opgave 2\Opgave-2.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Server\Opgave 3\Opgave-3.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StartMappe\H2,Svendeforløb,ekstra\Server\Opgave 3\Opgave-3.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

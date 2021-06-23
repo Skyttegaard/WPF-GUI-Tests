@@ -105,5 +105,11 @@ namespace GUI_til_test_program
                 DelayButton(sender, e);
             }
         }
+        private void TilfældigJob_OnClick(object sender, RoutedEventArgs e)
+        {
+            Random random = new();
+            jobScripts = ViewModel.Jobs[random.Next(0, ViewModel.Jobs.Count)];
+            ViewModel.ChangeDescriptions(jobScripts);
+        }
     }
 }
