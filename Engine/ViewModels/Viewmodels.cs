@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Engine.Models;
 using Engine.Factories;
+using System.Linq;
 using System.Diagnostics;
 /// <summary>
 /// public strings bliver brugt til bindings samt OnPropertyChanged for at de bliver opdateret i view. private strings bliver brugt som backing variable.
@@ -15,87 +16,104 @@ namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
     {
-        private string _startTid = "00:00";
-        private string _slutTid = "00:00";
-        private string _currentTime = "00:00";
-        private string _description;
-        private string _scriptFail;
-        private string _solution;
-        private string _hints;
-        private string _scriptFix;
+        private string _jobKategori = "Alle";
         private string _jobForløb = "GF";
         private List<JobScripts> _jobs { get; set; }
         private List<string> _forløb { get; set; }
         private List<string> _kategori { get; set; }
+
         public IReadOnlyList<JobScripts> Jobs => _jobs.FindOpgaver(_jobForløb, _jobKategori);
         public IReadOnlyList<string> Forløb => _forløb.AsReadOnly();
         public IReadOnlyList<string> Kategori => _kategori.AsReadOnly();
-        public string Description
+        public Timers Set1Timers { get; private set; }
+        public Timers Set2Timers { get; private set; }
+        public Timers Set3Timers { get; private set; }
+        public Timers Set4Timers { get; private set; }
+        public Timers Set5Timers { get; private set; }
+        public TextBoxesText Set1Texts { get; private set; }
+        public TextBoxesText Set2Texts { get; private set; }
+        public TextBoxesText Set3Texts { get; private set; }
+        public TextBoxesText Set4Texts { get; private set; }
+        public TextBoxesText Set5Texts { get; private set; }
+        public void InitializeObjects()
         {
-            get => _description;
-            set
+            
+            Set1Timers = new();
+            Set2Timers = new();
+            Set3Timers = new();
+            Set4Timers = new();
+            Set5Timers = new();
+            Set1Texts = new();
+            Set2Texts = new();
+            Set3Texts = new();
+            Set4Texts = new();
+            Set5Texts = new();
+        }
+        public void SetStartTid(int tabIndex)
+        {
+            switch (tabIndex)
             {
-                _description = value;
-                OnPropertyChanged();
+                case 0:
+                    Set1Timers.StartTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 1:
+                    Set2Timers.StartTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 2:
+                    Set3Timers.StartTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 3:
+                    Set4Timers.StartTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 4:
+                    Set5Timers.StartTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                default:
+                    throw new IndexOutOfRangeException();
             }
         }
-        public string ScriptFail
+        public void SetSlutTid(int tabIndex)
         {
-            get => _scriptFail;
-            set
+            switch (tabIndex)
             {
-                _scriptFail = value;
-                OnPropertyChanged();
+                case 0:
+                    Set1Timers.EndTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 1:
+                    Set2Timers.EndTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 2:
+                    Set3Timers.EndTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 3:
+                    Set4Timers.EndTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                case 4:
+                    Set5Timers.EndTimer = DateTime.Now.ToString("HH:mm");
+                    break;
+                default:
+                    throw new IndexOutOfRangeException();
             }
         }
-        public string Solution
+        public Timers SetCurrentTimer(int tabIndex)
         {
-            get => _solution;
-            set
+            switch (tabIndex)
             {
-                _solution = value;
-                OnPropertyChanged();
+                case 0:
+                    return Set1Timers;
+                case 1:
+                    return Set2Timers;
+                case 2:
+                    return Set3Timers;
+                case 3:
+                    return Set4Timers;
+                case 4:
+                    return Set5Timers;
+                default:
+                    throw new IndexOutOfRangeException();
+                    
             }
         }
-        public string Hints
-        {
-            get => _hints;
-            set
-            {
-                _hints = value;
-                OnPropertyChanged();
-            }
-        }
-        public string ScriptFix
-        {
-            get => _scriptFix;
-            set
-            {
-                _scriptFix = value;
-                OnPropertyChanged();
-            }
-        }
-        public string StartTid
-        {
-            get => _startTid;
-            set
-            {
-                _startTid = value;
-                OnPropertyChanged();
-            }
-        }
-        public string SlutTid
-        {
-            get => _slutTid;
-            set
-            {
-                _slutTid = value;
-                OnPropertyChanged();
-            }
-        }
-        public void SetStartTid() => StartTid = DateTime.Now.ToString("HH:mm");
-        public void SetSlutTid() => SlutTid = DateTime.Now.ToString("HH:mm");
-
         
         public string JobForløb
         {
@@ -109,7 +127,7 @@ namespace Engine.ViewModels
                 IfKategoriNull();
             }
         }
-        private string _jobKategori = "Alle";
+        
         public string JobKategori
         {
             get => _jobKategori;
@@ -127,57 +145,60 @@ namespace Engine.ViewModels
                 JobKategori = "Alle";
             }
         }
-
         public Viewmodels() 
         {
+            InitializeObjects();
             _kategori = TextFileReader.GetKategori("GF");
             _forløb = TextFileReader.GetForløb();
             _jobs = TextFileReader.ReadJobScripts();
-            ButtonFixToolTip = "Fix script fejl med denne knap";
-            ButtonFailToolTip = "Start script med fejl med denne knap";
         }
         private void OnForløbChanged()
         {
             _kategori = TextFileReader.GetKategori(JobForløb);
             OnPropertyChanged(nameof(Kategori));
         }
-        
-        public void ChangeDescriptions(JobScripts jobScripts)
+        private TextBoxesText ChooseSetTextBoxes(int setIndex)
         {
-            Description = jobScripts.Description;
-            ScriptFail = jobScripts.ScriptFailText;
-            Solution = jobScripts.Solution;
-            Hints = jobScripts.Hints;
-            ScriptFix = jobScripts.ScriptFixText;
-        }
-        public string CurrentTime
-        {
-            get => _currentTime;
-            set
+            switch (setIndex)
             {
-                _currentTime = value;
-                OnPropertyChanged();
+                case 0:
+                    return Set1Texts;
+                case 1:
+                    return Set2Texts;
+                case 2:
+                    return Set3Texts;
+                case 3:
+                    return Set4Texts;
+                case 4:
+                    return Set5Texts;
+                default:
+                    throw new IndexOutOfRangeException();
             }
+        }
+        public void ChangeDescriptions(JobScripts jobScripts, int setIndex)
+        {
+            TextBoxesText text = ChooseSetTextBoxes(setIndex);
+            text.Description = jobScripts.Description;
+            text.ScriptFail = jobScripts.ScriptFailText;
+            text.Solution = jobScripts.Solution;
+            text.Hints = jobScripts.Hints;
+            text.ScriptFix = jobScripts.ScriptFixText;
         }
         
         public void RunScript(string script)
         {
             ProcessStartInfo startInfo = new()
             {
+
                 FileName = "powershell.exe",
-                Arguments = $"-NoProfile -ExecutionPolicy unrestricted \"{script}\"",
+                Arguments = $"-NoProfile -ExecutionPolicy unrestricted -file  \"{script}\"",
                 UseShellExecute = false
             };
             Process.Start(startInfo);
             
         }
-        public string ButtonFixToolTip { get; }
-        public string ButtonFailToolTip { get; }
-        
-            
-
-
-
+        public string ButtonFixToolTip => "Fix script fejl med denne knap";
+        public string ButtonFailToolTip => "Start script med fejl med denne knap";
     }
     
 }

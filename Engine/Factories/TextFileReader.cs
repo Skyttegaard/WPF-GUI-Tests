@@ -43,6 +43,7 @@ namespace Engine.Factories
                     }
                 }
             }
+            
 
             return _kategori;
         }
@@ -92,11 +93,11 @@ namespace Engine.Factories
                         {
                             solutionScript = File.ReadAllText(file.FullName);
                         }
-                        foreach(FileInfo file in opgaver.GetFiles("Opgave-?.Fejl.ps"))
+                        foreach(FileInfo file in opgaver.GetFiles("Opgave-?.Fejl.ps?"))
                         {
                             fejl = file.FullName;
                         }
-                        foreach(FileInfo file in opgaver.GetFiles("Opgave-?.Løsning.ps"))
+                        foreach(FileInfo file in opgaver.GetFiles("Opgave-?.Løsning.ps?"))
                         {
                             løsning = file.FullName;
                         }

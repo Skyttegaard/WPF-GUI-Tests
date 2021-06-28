@@ -23,10 +23,16 @@
     <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
@@ -38,10 +44,16 @@
     <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.txt">
@@ -53,10 +65,16 @@
     <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.txt">
@@ -68,10 +86,16 @@
     <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.txt">
@@ -83,10 +107,16 @@
     <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
@@ -98,10 +128,16 @@
     <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.txt">
@@ -113,10 +149,16 @@
     <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.txt">
@@ -128,10 +170,16 @@
     <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.txt">
@@ -143,10 +191,16 @@
     <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.txt">
@@ -158,10 +212,16 @@
     <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.txt">
@@ -321,6 +381,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.PowerShell.Commands.Diagnostics" Version="7.1.3" />
+    <PackageReference Include="Microsoft.PowerShell.ConsoleHost" Version="7.1.3" />
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.1.3" />
     <PackageReference Include="System.Management.Automation" Version="7.1.3" />
   </ItemGroup>
 

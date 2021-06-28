@@ -19,7 +19,7 @@ namespace Engine.Models
         public string Title {get;}
         
         public string Kategori { get; }
-        public string Fejl { get; }
+        public string Fejl { get; set; }
         public string Løsning { get; }
         public string Forløb { get; }
 
@@ -37,5 +37,6 @@ namespace Engine.Models
             Løsning = løsning;
 
         }
+        
     }
 }
