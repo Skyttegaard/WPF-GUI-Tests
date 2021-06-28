@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using Engine.Models;
 using Engine.Factories;
-using System.Linq;
 using System.Diagnostics;
 /// <summary>
-/// public strings bliver brugt til bindings samt OnPropertyChanged for at de bliver opdateret i view. private strings bliver brugt som backing variable.
-/// StartTid & SlutTid sætter tidspunktet scriptet er startet og slutted.
-/// ChangeDescriptions bliver brugt i MainWindow.xaml.cs til at ændre alle tekstbokse når man vælger en ny ting fra listen.
-/// OnForløbChanged opdatere kategori listen for at den passer til det forløb man har valgt.
+/// Dette er viewmodel som bliver brugt som hoveddelen af koden til programmet. Her bliver der bindet til i MainWindow.xaml
+/// Public strings bliver brugt til bindings samt OnPropertyChanged for at de bliver opdateret i view. private strings bliver brugt som backing variable.
+/// ChangeDescriptions bliver brugt i MainWindow.xaml.cs til at ændre alle tekstbokse når man vælger en ny ting fra listen. Her bliver der brugt indekset af sæt tabbet man er på
+/// StartTid & SlutTid sætter tidspunktet scriptet er startet og sluttet. Her bliver sæt tab indeks også brugt til at differentiere mellem hvad der skal ændres.
+/// OnForløbChanged opdatere kategori listen for at den passer til det forløb man har valgt
 /// IfKategoriNull tjekker om der er valgt en kategori. Hvis ikke bliver den sat til "Alle"
 /// 2 ToolTips til knappende til mouseover så man kan se hvad de gør
+/// SetTimers og SetTexts bliver brugt til at opdele strings til alle sættene så de ikke er det samme.
+/// InitializeObjects bliver brugt til at initialiere SetTimers og SetTexts.
+/// RunScript tager filepath til det script man gerne vil køre som er gemt i jobscriptet. Her bliver der lavet en processinfo så man kan køre det i powershell.
 /// </summary>
 namespace Engine.ViewModels
 {
