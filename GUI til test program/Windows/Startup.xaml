@@ -1,0 +1,46 @@
+﻿<Window x:Class="GUI_til_test_program.Windows.Startup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_til_test_program"
+        mc:Ignorable="d"
+        Title="Startup" Height="400" Width="400"
+        FontSize="11pt"
+        ResizeMode="NoResize">
+    <Grid Margin="10,10,10,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="1" Grid.Column="0"
+                Margin="0,5,0,5"
+                HorizontalAlignment="Center"
+                Width="125"
+                Content="Set File Path"
+                Click="SetFilePath_OnClick"/>
+        <Button Grid.Row="2" Grid.Column="0"
+                Margin="0,5,0,5"
+                HorizontalAlignment="Center"
+                Width="125"
+                Content="Exit"
+                Click="Exit_OnClick"/>
+        <TextBox Grid.Row="3" Grid.Column="0"
+                 Height="100" HorizontalScrollBarVisibility="Auto"
+                 x:Name="FilePathTextBox"/>
+        <Button Grid.Row="4" Grid.Column="0"
+                Margin="0,5,0,5"
+                HorizontalAlignment="Center"
+                Width="125"
+                Content="Confirm"
+                Click="Confirm_OnClick"/>
+
+    </Grid>
+</Window>

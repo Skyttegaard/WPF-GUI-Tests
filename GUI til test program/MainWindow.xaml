@@ -12,6 +12,11 @@
         WindowState="Maximized"
         Title="MainWindow" Height="768" Width="1024">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0"/>
         <TabControl Grid.Row="1" x:Name="SetDataTabControl">
              <TabItem Header="Sæt 1"
                      x:Name="Set1ItemTab">

@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="FilePath.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

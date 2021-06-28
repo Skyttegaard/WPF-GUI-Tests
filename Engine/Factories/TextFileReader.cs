@@ -13,12 +13,13 @@ namespace Engine.Factories
 {
     public static class TextFileReader
     {
-        private const string DATA_FOLDERNAME = ".\\Forløb\\";
+        private static string DATA_FOLDERNAME;
         private static List<JobScripts> _jobScripts = new();
         private static List<string> _forløb = new();
         private static List<string> _kategori = new();
         static TextFileReader()
         {
+            DATA_FOLDERNAME = File.ReadAllText(".\\FilePath.txt");
             if (Directory.Exists(DATA_FOLDERNAME))
             {
                 ReadDirectoryFiles();
