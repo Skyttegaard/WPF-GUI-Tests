@@ -17,12 +17,10 @@ namespace Engine.Models
         public string Hints { get; }
         public string ScriptFixText { get; }
         public string Title {get;}
-        
         public string Kategori { get; }
         public string Fejl { get; set; }
         public string Løsning { get; }
         public string Forløb { get; }
-
         public JobScripts(string forløb, string kategori, string title, string description, string scriptFail, string solution, string hints, string scriptFix, string fejl, string løsning)
         {
             Forløb = forløb;
@@ -35,8 +33,6 @@ namespace Engine.Models
             ScriptFixText = scriptFix;
             Fejl = fejl;
             Løsning = løsning;
-
         }
-        
     }
 }

@@ -38,6 +38,5 @@ namespace Engine.Models
                 OnPropertyChanged();
             }
         }
-
     }
 }

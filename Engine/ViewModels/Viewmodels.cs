@@ -116,11 +116,9 @@ namespace Engine.ViewModels
                 case 4:
                     return Set5Timers;
                 default:
-                    throw new IndexOutOfRangeException();
-                    
+                    throw new IndexOutOfRangeException();           
             }
         }
-        
         public string JobForløb
         {
             get => _jobForløb;
@@ -133,7 +131,6 @@ namespace Engine.ViewModels
                 IfKategoriNull();
             }
         }
-        
         public string JobKategori
         {
             get => _jobKategori;
@@ -190,7 +187,6 @@ namespace Engine.ViewModels
             text.Hints = jobScripts.Hints;
             text.ScriptFix = jobScripts.ScriptFixText;
         }
-        
         public void RunScript(string script)
         {
             ProcessStartInfo startInfo = new()
@@ -201,11 +197,9 @@ namespace Engine.ViewModels
                 UseShellExecute = false
             };
             Process.Start(startInfo);
-            
         }
         public string ButtonFixToolTip => "Fix script fejl med denne knap";
         public string ButtonFailToolTip => "Start script med fejl med denne knap";
-
         public void RestartProgram()
         {
             if (CloseWindows)

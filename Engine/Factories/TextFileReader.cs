@@ -13,7 +13,7 @@ namespace Engine.Factories
 {
     public static class TextFileReader
     {
-        private static string DATA_FOLDERNAME;
+        private static readonly string DATA_FOLDERNAME;
         private static List<JobScripts> _jobScripts = new();
         private static List<string> _forløb = new();
         private static List<string> _kategori = new();
@@ -44,8 +44,6 @@ namespace Engine.Factories
                     }
                 }
             }
-            
-
             return _kategori;
         }
         public static List<string> GetForløb() => _forløb;
@@ -102,10 +100,8 @@ namespace Engine.Factories
                         {
                             løsning = file.FullName;
                         }
-
                         _jobScripts.Add(new JobScripts(forløbFolder, kategoriFolder, opgaveNavn, description, failScript, solution, hints, solutionScript, fejl, løsning));
                     }
-
                 }
                 if (!_forløb.Contains(forløbFolder))
                 {

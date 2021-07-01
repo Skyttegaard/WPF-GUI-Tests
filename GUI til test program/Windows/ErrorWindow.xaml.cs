@@ -25,11 +25,9 @@ namespace GUI_til_test_program.Windows
         {
             DataContext = viewModel;
             InitializeComponent();
-
             Title = title;
             Message.Content = message;
         }
-
         private void Ja_OnClick(object sender, RoutedEventArgs e)
         {
             ClickedYes = true;

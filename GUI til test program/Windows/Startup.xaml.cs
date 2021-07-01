@@ -23,6 +23,7 @@ namespace GUI_til_test_program.Windows
     /// </summary>
     public partial class Startup : Window
     {
+        
         public Startup()
         {
             if (!File.Exists(".\\FilePath.txt"))
@@ -31,15 +32,13 @@ namespace GUI_til_test_program.Windows
             }
             InitializeComponent();
             FilePathTextBox.Text = File.ReadAllText(".\\FilePath.txt");
-            if(FilePathTextBox.Text != string.Empty)
+            if (FilePathTextBox.Text != string.Empty)
             {
                 MainWindow mw = new();
                 mw.Show();
                 Close();
             }
         }
-
-
         private void SetFilePath_OnClick(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new();
@@ -47,10 +46,7 @@ namespace GUI_til_test_program.Windows
             if(result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
             {
                  FilePathTextBox.Text = folderBrowserDialog.SelectedPath;
-
             }
-                
-            
         }
         private void Exit_OnClick(object sender, RoutedEventArgs e)
         {
@@ -62,8 +58,8 @@ namespace GUI_til_test_program.Windows
             {
                 return;
             }
-            File.WriteAllText("C:\\Users\\Wowar\\Source\\Repos\\GUI-til-test-program6\\Engine\\FilePath.txt", FilePathTextBox.Text);
             File.WriteAllText(".\\FilePath.txt", FilePathTextBox.Text);
+            File.WriteAllText("C:\\Users\\Wowar\\Source\\Repos\\GUI-til-test-program6\\Engine\\FilePath.txt", FilePathTextBox.Text);
             MainWindow mw = new();
             mw.Show();
             Close();
