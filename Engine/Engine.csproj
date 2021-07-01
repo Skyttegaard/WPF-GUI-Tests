@@ -17,219 +17,296 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="FilePath.txt">
+    <None Remove="FilePath.txt" />
+    <None Remove="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt" />
+    <None Remove="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt" />
+    <None Remove="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1" />
+    <None Remove="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Hints.txt" />
+    <None Remove="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt" />
+    <None Remove="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1" />
+    <None Remove="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl.ps1" />
+    <None Remove="Forløb\GF\Klienter\Opgave 2\Opgave-2.Hints.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.ps1" />
+    <None Remove="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 4\Opgave-4.Beskrivelse.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl-Script.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl.ps1" />
+    <None Remove="Forløb\GF\Klienter\Opgave 4\Opgave-4.Hints.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning-Script.txt" />
+    <None Remove="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.ps1" />
+    <None Remove="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.txt" />
+    <None Remove="Forløb\GF\Server\Opgave 3\Opgave-3.Beskrivelse.txt" />
+    <None Remove="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl-Script.txt" />
+    <None Remove="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl.ps1" />
+    <None Remove="Forløb\GF\Server\Opgave 3\Opgave-3.Hints.txt" />
+    <None Remove="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning-Script.txt" />
+    <None Remove="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.ps1" />
+    <None Remove="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.txt" />
+    <None Remove="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt" />
+    <None Remove="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt" />
+    <None Remove="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1" />
+    <None Remove="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Hints.txt" />
+    <None Remove="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt" />
+    <None Remove="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1" />
+    <None Remove="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.txt" />
+    <None Remove="Forløb\H1\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt" />
+    <None Remove="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt" />
+    <None Remove="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl.ps1" />
+    <None Remove="Forløb\H1\Klienter\Opgave 2\Opgave-2.Hints.txt" />
+    <None Remove="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt" />
+    <None Remove="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.ps1" />
+    <None Remove="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.txt" />
+    <None Remove="Forløb\H1\Server\Opgave 3\Opgave-3.Beskrivelse.txt" />
+    <None Remove="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl-Script.txt" />
+    <None Remove="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl.ps1" />
+    <None Remove="Forløb\H1\Server\Opgave 3\Opgave-3.Hints.txt" />
+    <None Remove="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning-Script.txt" />
+    <None Remove="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.ps1" />
+    <None Remove="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.txt" />
+    <None Remove="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Beskrivelse.txt" />
+    <None Remove="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl-Script.txt" />
+    <None Remove="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl.ps1" />
+    <None Remove="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Hints.txt" />
+    <None Remove="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning-Script.txt" />
+    <None Remove="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.ps1" />
+    <None Remove="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.txt" />
+    <None Remove="Forløb\H2\OSPF\Opgave 2\Opgave-2.Beskrivelse.txt" />
+    <None Remove="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl-Script.txt" />
+    <None Remove="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl.ps1" />
+    <None Remove="Forløb\H2\OSPF\Opgave 2\Opgave-2.Hints.txt" />
+    <None Remove="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning-Script.txt" />
+    <None Remove="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.ps1" />
+    <None Remove="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.txt" />
+    <None Remove="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Beskrivelse.txt" />
+    <None Remove="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl-Script.txt" />
+    <None Remove="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl.ps1" />
+    <None Remove="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Hints.txt" />
+    <None Remove="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning-Script.txt" />
+    <None Remove="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.ps1" />
+    <None Remove="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="FilePath.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 2\Opgave-2.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 4\Opgave-4.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 4\Opgave-4.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Hints.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\GF\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 2\Opgave-2.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\GF\Server\Opgave 3\Opgave-3.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Hints.txt">
+    </Content>
+    <Content Include="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Klienter\Opgave 4\Opgave-4.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Hints.txt">
+    </Content>
+    <Content Include="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\H1\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\GF\Server\Opgave 3\Opgave-3.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\H1\Klienter\Opgave 2\Opgave-2.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Hints.txt">
+    </Content>
+    <Content Include="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\H1\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Basis netværk\Opgave 1\Opgave-1.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\H1\Server\Opgave 3\Opgave-3.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Hints.txt">
+    </Content>
+    <Content Include="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Klienter\Opgave 2\Opgave-2.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Hints.txt">
+    </Content>
+    <Content Include="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\H2\OSPF\Opgave 2\Opgave-2.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H1\Server\Opgave 3\Opgave-3.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\H2\OSPF\Opgave 2\Opgave-2.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Hints.txt">
+    </Content>
+    <Content Include="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.ps1">
+    </Content>
+    <Content Include="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\EIGRP\Opgave 1\Opgave-1.Løsning.txt">
+    </Content>
+    <Content Include="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Beskrivelse.txt">
+    </Content>
+    <Content Include="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl-Script.txt">
+    </Content>
+    <Content Include="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Hints.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Fejl.ps1">
+    </Content>
+    <Content Include="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning-Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Hints.txt">
+    </Content>
+    <Content Include="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning-Script.txt">
+    </Content>
+    <Content Include="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\H2\OSPF\Opgave 2\Opgave-2.Løsning.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Beskrivelse.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl-Script.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Fejl.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Hints.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning-Script.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Forløb\Svendeprøve\OSPF\Opgave 3\Opgave-3.Løsning.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="StartMappe\GF,H1\Basis netværk\Opgave 1\Opgave-1.Beskrivelse.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -373,7 +450,6 @@
     <Folder Include="Forløb\Ekstra\Klienter\" />
     <Folder Include="Forløb\Ekstra\OSPF\" />
     <Folder Include="Forløb\Ekstra\Server\" />
-    <Folder Include="Forløb\H1\" />
     <Folder Include="Forløb\H2\Basis netværk\" />
     <Folder Include="Forløb\H2\Klienter\" />
     <Folder Include="Forløb\H2\Server\" />

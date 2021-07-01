@@ -8,6 +8,8 @@
         Title="Startup" Height="400" Width="400"
         FontSize="11pt"
         ResizeMode="NoResize">
+
+    
     <Grid Margin="10,10,10,10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

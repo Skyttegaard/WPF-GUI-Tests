@@ -14,9 +14,20 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0"/>
+        <Menu Grid.Row="0"
+              FontSize="11pt"
+              Background="AliceBlue">
+            <MenuItem Header="File">
+                <MenuItem Header="Folder location"
+                          Click="ChangeFolderLocation_OnClick"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="Help"
+                          Click="Help_OnClick"/>
+            </MenuItem>
+        </Menu>
         <TabControl Grid.Row="1" x:Name="SetDataTabControl">
              <TabItem Header="Sæt 1"
                      x:Name="Set1ItemTab">
@@ -191,7 +202,7 @@
                                     IsReadOnly="True"
                                     CanUserSortColumns="False"
                                     ItemsSource="{Binding Jobs}"
-                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid2_SelectionChanged" Grid.ColumnSpan="3">
+                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
                                                     IsReadOnly="True"
@@ -314,7 +325,7 @@
                                     IsReadOnly="True"
                                     CanUserSortColumns="False"
                                     ItemsSource="{Binding Jobs}"
-                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid3_SelectionChanged" Grid.ColumnSpan="3">
+                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
                                                     IsReadOnly="True"
@@ -437,7 +448,7 @@
                                     IsReadOnly="True"
                                     CanUserSortColumns="False"
                                     ItemsSource="{Binding Jobs}"
-                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid4_SelectionChanged" Grid.ColumnSpan="3">
+                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
                                                     IsReadOnly="True"
@@ -560,7 +571,7 @@
                                     IsReadOnly="True"
                                     CanUserSortColumns="False"
                                     ItemsSource="{Binding Jobs}"
-                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid5_SelectionChanged" Grid.ColumnSpan="3">
+                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
                                                     IsReadOnly="True"

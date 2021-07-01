@@ -5,13 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_til_test_program.Windows"
         mc:Ignorable="d"
+        xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
+        d:DataContext="{d:DesignInstance viewModels:Viewmodels}"
         Title="ErrorWindow" MinHeight="100" MinWidth="400"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
-        FontSize="16pt"
+        FontSize="12pt"
         WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
     <Grid Margin="5,5,5,5">
-        <Label x:Name="Message"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="2" x:Name="Message"/>
+        <Button Content="Ja" Grid.Row="1" Grid.Column="0" Height="40" Width="100" HorizontalAlignment="Center" Visibility="{Binding ErrorButtonVisibility, Converter={StaticResource BooleanToVisibility}}" Click="Ja_OnClick"/>
+        <Button Content="Nej" Grid.Row="1" Grid.Column="1" Height="40" Width="100" HorizontalAlignment="Center" Visibility="{Binding ErrorButtonVisibility, Converter={StaticResource BooleanToVisibility}}" Click="Nej_OnClick"/>
 
     </Grid>
 </Window>

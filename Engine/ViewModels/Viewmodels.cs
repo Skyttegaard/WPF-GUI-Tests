@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Engine.Models;
 using Engine.Factories;
 using System.Diagnostics;
+using System.IO;
 /// <summary>
 /// Dette er viewmodel som bliver brugt som hoveddelen af koden til programmet. Her bliver der bindet til i MainWindow.xaml
 /// Public strings bliver brugt til bindings samt OnPropertyChanged for at de bliver opdateret i view. private strings bliver brugt som backing variable.
@@ -19,6 +20,8 @@ namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
     {
+        public bool CloseWindows { get; set; }
+        public bool ErrorButtonVisibility { get; set; }
         private string _jobKategori = "Alle";
         private string _jobForløb = "GF";
         private List<JobScripts> _jobs { get; set; }
@@ -40,7 +43,7 @@ namespace Engine.ViewModels
         public TextBoxesText Set5Texts { get; private set; }
         public void InitializeObjects()
         {
-            
+            CloseWindows = false;
             Set1Timers = new();
             Set2Timers = new();
             Set3Timers = new();
@@ -202,6 +205,14 @@ namespace Engine.ViewModels
         }
         public string ButtonFixToolTip => "Fix script fejl med denne knap";
         public string ButtonFailToolTip => "Start script med fejl med denne knap";
+
+        public void RestartProgram()
+        {
+            if (CloseWindows)
+            {
+                File.WriteAllText(".\\FilePath.txt", string.Empty);
+            }
+        }
     }
     
 }

@@ -6,19 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Diagnostics;
-using System.ComponentModel;
-using System.Timers;
-using System.Management.Automation;
-using System.Management.Automation.Runspaces;
 using GUI_til_test_program.Windows;
 using Engine.Models;
 using Engine.ViewModels;
@@ -29,6 +18,7 @@ using Engine.ViewModels;
 /// LavFejl_Click starter scriptet og timeren. 
 /// RetFejl_Click retter scriptet. 
 /// StopTid_OnClick stopper tiden. 
+/// ChangeFolder åbner et nyt vindue som spørger om man vil ændre startfolder hvor alle tekstfiler og scripts er gemt i. Hvis man trykker ja starter den programmet forfra or sletter alt i FilePath.txt så man kan vælge en ny path.
 /// </summary>
 namespace GUI_til_test_program
 {
@@ -58,56 +48,13 @@ namespace GUI_til_test_program
                 jobScripts = job;
             }
         }
-        private void DataGrid2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SetTabs = SetDataTabControl;
-            DataGrid dataGrid = sender as DataGrid;
-            JobScripts job = dataGrid.SelectedItem as JobScripts;
-            if (job != null)
-            {
-                viewModel.ChangeDescriptions(job, SetTabs.SelectedIndex);
-                jobScripts = job;
-            }
-        }
-        private void DataGrid3_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SetTabs = SetDataTabControl;
-            DataGrid dataGrid = sender as DataGrid;
-            JobScripts job = dataGrid.SelectedItem as JobScripts;
-            if (job != null)
-            {
-                viewModel.ChangeDescriptions(job, SetTabs.SelectedIndex);
-                jobScripts = job;
-            }
-        }
-        private void DataGrid4_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SetTabs = SetDataTabControl;
-            DataGrid dataGrid = sender as DataGrid;
-            JobScripts job = dataGrid.SelectedItem as JobScripts;
-            if (job != null)
-            {
-                viewModel.ChangeDescriptions(job, SetTabs.SelectedIndex);
-                jobScripts = job;
-            }
-        }
-        private void DataGrid5_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SetTabs = SetDataTabControl;
-            DataGrid dataGrid = sender as DataGrid;
-            JobScripts job = dataGrid.SelectedItem as JobScripts;
-            if (job != null)
-            {
-                viewModel.ChangeDescriptions(job, SetTabs.SelectedIndex);
-                jobScripts = job;
-            }
-        }
         private void LavFejl_Click(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
             if(jobScripts == null)
             {
-                ErrorWindow message = new("Vælg script", "Du har ikke valgt et script");
+                viewModel.ErrorButtonVisibility = false;
+                ErrorWindow message = new("Vælg script", "Du har ikke valgt et script", viewModel);
                 message.Owner = GetWindow(this);
                 message.ShowDialog();
             }
@@ -164,13 +111,27 @@ namespace GUI_til_test_program
 
             
         }
-        private void Test_OnClick(object sender, RoutedEventArgs e)
+        
+
+        private void ChangeFolderLocation_OnClick(object sender, RoutedEventArgs e)
         {
-            TabItem ti = SetDataTabControl.SelectedItem as TabItem;
-            TabControl tab = SetDataTabControl;
-            
-            ErrorWindow message = new ErrorWindow("test", $"Selected tab is {tab.SelectedIndex}");
-            
+            viewModel.ErrorButtonVisibility = true;
+            ErrorWindow message = new("Folder change", "Vil du vælge en ny mappe? (lukker programmet ned)", viewModel);
+            message.Owner = GetWindow(this);
+            message.ShowDialog();
+            if (message.ClickedYes)
+            {
+                viewModel.CloseWindows = true;
+                viewModel.RestartProgram();
+                Startup st = new();
+                st.Show();
+                Close();
+
+            }
+        }
+        private void Help_OnClick(object sender, RoutedEventArgs e)
+        {
+            HelpWindow message = new("Hvis du ikke ser nogle opgaver kan du prøve at ændre folderpath. Path skal være ValgtFolder -> Forløb -> Kategori -> Opgave -> Filer.\nFor at ændre folderplacering, tryk 'File'");
             message.Owner = GetWindow(this);
             message.ShowDialog();
         }

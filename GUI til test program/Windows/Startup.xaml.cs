@@ -25,6 +25,10 @@ namespace GUI_til_test_program.Windows
     {
         public Startup()
         {
+            if (!File.Exists(".\\FilePath.txt"))
+            {
+                File.Create(".\\FilePath.txt");
+            }
             InitializeComponent();
             FilePathTextBox.Text = File.ReadAllText(".\\FilePath.txt");
             if(FilePathTextBox.Text != string.Empty)
@@ -58,6 +62,7 @@ namespace GUI_til_test_program.Windows
             {
                 return;
             }
+            File.WriteAllText("C:\\Users\\Wowar\\Source\\Repos\\GUI-til-test-program6\\Engine\\FilePath.txt", FilePathTextBox.Text);
             File.WriteAllText(".\\FilePath.txt", FilePathTextBox.Text);
             MainWindow mw = new();
             mw.Show();
