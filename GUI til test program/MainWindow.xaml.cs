@@ -1,16 +1,13 @@
-﻿using System;
+﻿using Engine.Models;
+using Engine.ViewModels;
+using GUI_til_test_program.Windows;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using System.Diagnostics;
-using GUI_til_test_program.Windows;
-using Engine.Models;
-using Engine.ViewModels;
 /// <summary>
 /// DispatcherTimer & StopWatch bliver brugt til at tjekke hvor lang tid man bruger på en opgave
 /// DataGrid_SelectionChanged bliver kaldt hver gang man vælger et nyt element fra datagrid(job liste) Her ændre den descriptions og gemmer valgte element som jobScripts
@@ -27,15 +24,18 @@ namespace GUI_til_test_program
         private readonly DispatcherTimer dispatcherTimer = new();
         private readonly Stopwatch stopWatch = new();
         private readonly Viewmodels viewModel = new();
-        private JobScripts jobScripts;
         private TabControl SetTabs;
-        private Timers timers;
+        private readonly List<JobScripts> jobScriptsList = new() { null, null, null, null, null };
+        private int CurrentTimerSet;
+
         public MainWindow()
         {
+
             dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             DataContext = viewModel;
             InitializeComponent();
+
         }
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -44,14 +44,22 @@ namespace GUI_til_test_program
             JobScripts job = dataGrid.SelectedItem as JobScripts;
             if (job != null)
             {
+                jobScriptsList[SetDataTabControl.SelectedIndex] = job;
                 viewModel.ChangeDescriptions(job, SetTabs.SelectedIndex);
-                jobScripts = job;
             }
         }
         private void LavFejl_Click(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
-            if(jobScripts == null)
+            if (stopWatch.IsRunning && CurrentTimerSet != SetTabs.SelectedIndex)
+            {
+                ErrorWindow message = new("Error", "Stop timer på det script du er igang med først", viewModel);
+                message.Owner = GetWindow(this);
+                message.ShowDialog();
+                return;
+            }
+            CurrentTimerSet = SetTabs.SelectedIndex;
+            if (jobScriptsList[SetTabs.SelectedIndex] == null)
             {
                 viewModel.ErrorButtonVisibility = false;
                 ErrorWindow message = new("Vælg script", "Du har ikke valgt et script", viewModel);
@@ -62,26 +70,26 @@ namespace GUI_til_test_program
             {
                 stopWatch.Reset();
                 SetTabs = SetDataTabControl;
-                timers = viewModel.SetCurrentTimer(SetTabs.SelectedIndex);
                 stopWatch.Start();
                 dispatcherTimer.Start();
                 DelayButton(sender, e);
                 viewModel.SetStartTid(SetTabs.SelectedIndex);
-                viewModel.RunScript(jobScripts.Fejl);
+                viewModel.RunScript(jobScriptsList[SetTabs.SelectedIndex].Fejl);
             }
         }
         private void RetFejl_Click(object sender, RoutedEventArgs e)
         {
+            SetTabs = SetDataTabControl;
             DelayButton(sender, e);
-            viewModel.RunScript(jobScripts.Løsning);
+            viewModel.RunScript(jobScriptsList[SetTabs.SelectedIndex].Løsning);
         }
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            
+            SetTabs = SetDataTabControl;
             if (stopWatch.IsRunning)
             {
                 TimeSpan ts = stopWatch.Elapsed;
-                timers.CurrentTimer = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+                viewModel.TextBoxes[CurrentTimerSet].CurrentTimer = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
             }
         }
         private async void DelayButton(object sender, EventArgs e)
@@ -98,7 +106,7 @@ namespace GUI_til_test_program
             if (stopWatch.IsRunning)
             {
                 stopWatch.Stop();
-                viewModel.SetSlutTid(SetTabs.SelectedIndex);
+                viewModel.SetSlutTid(CurrentTimerSet);
                 DelayButton(sender, e);
             }
         }
@@ -106,12 +114,12 @@ namespace GUI_til_test_program
         {
             SetTabs = SetDataTabControl;
             Random random = new();
-            jobScripts = viewModel.Jobs[random.Next(0, viewModel.Jobs.Count)];
-            viewModel.ChangeDescriptions(jobScripts, SetTabs.SelectedIndex);
+            jobScriptsList[SetTabs.SelectedIndex] = viewModel.Jobs[random.Next(0, viewModel.Jobs.Count)];
+            viewModel.ChangeDescriptions(jobScriptsList[SetTabs.SelectedIndex], SetTabs.SelectedIndex);
 
-            
+
         }
-        
+
 
         private void ChangeFolderLocation_OnClick(object sender, RoutedEventArgs e)
         {

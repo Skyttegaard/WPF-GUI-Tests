@@ -13,12 +13,21 @@ namespace Engine.Factories
 {
     public static class TextFileReader
     {
-        private static readonly string DATA_FOLDERNAME;
+        private static string DATA_FOLDERNAME;
         private static List<JobScripts> _jobScripts = new();
-        private static List<string> _forløb = new();
-        private static List<string> _kategori = new();
+        private static readonly List<string> _forløb = new();
+        private static readonly List<string> _kategori = new();
         static TextFileReader()
         {
+            Initialize();
+        }
+
+        public static void Initialize()
+        {
+
+            _forløb.Clear();
+            _jobScripts.Clear();
+            _kategori.Clear();
             DATA_FOLDERNAME = File.ReadAllText(".\\FilePath.txt");
             if (Directory.Exists(DATA_FOLDERNAME))
             {
@@ -37,7 +46,7 @@ namespace Engine.Factories
             {
                 if (scripts.Forløb == forløb)
                 {
-                    
+
                     if (!_kategori.Contains(scripts.Kategori))
                     {
                         _kategori.Add(scripts.Kategori);
@@ -49,7 +58,7 @@ namespace Engine.Factories
         public static List<string> GetForløb() => _forløb;
 
         public static List<JobScripts> ReadJobScripts() => _jobScripts;
-        
+
         public static void ReadDirectoryFiles()
         {
             DirectoryInfo d = new(DATA_FOLDERNAME);
@@ -92,11 +101,11 @@ namespace Engine.Factories
                         {
                             solutionScript = File.ReadAllText(file.FullName);
                         }
-                        foreach(FileInfo file in opgaver.GetFiles("Opgave-?.Fejl.ps?"))
+                        foreach (FileInfo file in opgaver.GetFiles("Opgave-?.Fejl.ps?"))
                         {
                             fejl = file.FullName;
                         }
-                        foreach(FileInfo file in opgaver.GetFiles("Opgave-?.Løsning.ps?"))
+                        foreach (FileInfo file in opgaver.GetFiles("Opgave-?.Løsning.ps?"))
                         {
                             løsning = file.FullName;
                         }

@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Engine.Factories;
 using Engine.Models;
-using Engine.Factories;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 /// <summary>
 /// Dette er viewmodel som bliver brugt som hoveddelen af koden til programmet. Her bliver der bindet til i MainWindow.xaml
 /// Public strings bliver brugt til bindings samt OnPropertyChanged for at de bliver opdateret i view. private strings bliver brugt som backing variable.
@@ -11,15 +13,15 @@ using System.IO;
 /// StartTid & SlutTid sætter tidspunktet scriptet er startet og sluttet. Her bliver sæt tab indeks også brugt til at differentiere mellem hvad der skal ændres.
 /// OnForløbChanged opdatere kategori listen for at den passer til det forløb man har valgt
 /// IfKategoriNull tjekker om der er valgt en kategori. Hvis ikke bliver den sat til "Alle"
-/// 2 ToolTips til knappende til mouseover så man kan se hvad de gør
-/// SetTimers og SetTexts bliver brugt til at opdele strings til alle sættene så de ikke er det samme.
-/// InitializeObjects bliver brugt til at initialiere SetTimers og SetTexts.
+/// 2 ToolTips til knapperne til mouseover så man kan se hvad de gør
+/// TextBoxes bliver brugt til at opdele strings til alle sættene så de ikke er det samme.
 /// RunScript tager filepath til det script man gerne vil køre som er gemt i jobscriptet. Her bliver der lavet en processinfo så man kan køre det i powershell.
 /// </summary>
 namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
     {
+        private readonly CultureInfo dk = new("da-dk");
         public bool CloseWindows { get; set; }
         public bool ErrorButtonVisibility { get; set; }
         private string _jobKategori = "Alle";
@@ -31,94 +33,18 @@ namespace Engine.ViewModels
         public IReadOnlyList<JobScripts> Jobs => _jobs.FindOpgaver(_jobForløb, _jobKategori);
         public IReadOnlyList<string> Forløb => _forløb.AsReadOnly();
         public IReadOnlyList<string> Kategori => _kategori.AsReadOnly();
-        public Timers Set1Timers { get; private set; }
-        public Timers Set2Timers { get; private set; }
-        public Timers Set3Timers { get; private set; }
-        public Timers Set4Timers { get; private set; }
-        public Timers Set5Timers { get; private set; }
-        public TextBoxesText Set1Texts { get; private set; }
-        public TextBoxesText Set2Texts { get; private set; }
-        public TextBoxesText Set3Texts { get; private set; }
-        public TextBoxesText Set4Texts { get; private set; }
-        public TextBoxesText Set5Texts { get; private set; }
-        public void InitializeObjects()
-        {
-            CloseWindows = false;
-            Set1Timers = new();
-            Set2Timers = new();
-            Set3Timers = new();
-            Set4Timers = new();
-            Set5Timers = new();
-            Set1Texts = new();
-            Set2Texts = new();
-            Set3Texts = new();
-            Set4Texts = new();
-            Set5Texts = new();
-        }
+        public List<TextBoxesText> TextBoxes { get; private set; }
+            = new() { new(), new(), new(), new(), new() };
+
         public void SetStartTid(int tabIndex)
         {
-            switch (tabIndex)
-            {
-                case 0:
-                    Set1Timers.StartTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 1:
-                    Set2Timers.StartTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 2:
-                    Set3Timers.StartTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 3:
-                    Set4Timers.StartTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 4:
-                    Set5Timers.StartTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                default:
-                    throw new IndexOutOfRangeException();
-            }
+            TextBoxes[tabIndex].StartTimer = DateTime.Now.ToString("HH:mm", dk);
         }
         public void SetSlutTid(int tabIndex)
         {
-            switch (tabIndex)
-            {
-                case 0:
-                    Set1Timers.EndTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 1:
-                    Set2Timers.EndTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 2:
-                    Set3Timers.EndTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 3:
-                    Set4Timers.EndTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                case 4:
-                    Set5Timers.EndTimer = DateTime.Now.ToString("HH:mm");
-                    break;
-                default:
-                    throw new IndexOutOfRangeException();
-            }
+            TextBoxes[tabIndex].EndTimer = DateTime.Now.ToString("HH:mm", dk);
         }
-        public Timers SetCurrentTimer(int tabIndex)
-        {
-            switch (tabIndex)
-            {
-                case 0:
-                    return Set1Timers;
-                case 1:
-                    return Set2Timers;
-                case 2:
-                    return Set3Timers;
-                case 3:
-                    return Set4Timers;
-                case 4:
-                    return Set5Timers;
-                default:
-                    throw new IndexOutOfRangeException();           
-            }
-        }
+
         public string JobForløb
         {
             get => _jobForløb;
@@ -128,7 +54,7 @@ namespace Engine.ViewModels
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Jobs));
                 OnForløbChanged();
-                IfKategoriNull();
+
             }
         }
         public string JobKategori
@@ -141,16 +67,10 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(Jobs));
             }
         }
-        private void IfKategoriNull()
+
+        public Viewmodels()
         {
-            if(JobKategori == null)
-            {
-                JobKategori = "Alle";
-            }
-        }
-        public Viewmodels() 
-        {
-            InitializeObjects();
+            TextFileReader.Initialize();
             _kategori = TextFileReader.GetKategori("GF");
             _forløb = TextFileReader.GetForløb();
             _jobs = TextFileReader.ReadJobScripts();
@@ -159,33 +79,19 @@ namespace Engine.ViewModels
         {
             _kategori = TextFileReader.GetKategori(JobForløb);
             OnPropertyChanged(nameof(Kategori));
-        }
-        private TextBoxesText ChooseSetTextBoxes(int setIndex)
-        {
-            switch (setIndex)
+            if (JobKategori == null)
             {
-                case 0:
-                    return Set1Texts;
-                case 1:
-                    return Set2Texts;
-                case 2:
-                    return Set3Texts;
-                case 3:
-                    return Set4Texts;
-                case 4:
-                    return Set5Texts;
-                default:
-                    throw new IndexOutOfRangeException();
+                JobKategori = _kategori.First();
             }
         }
-        public void ChangeDescriptions(JobScripts jobScripts, int setIndex)
+
+        public void ChangeDescriptions(JobScripts jobScripts, int tabIndex)
         {
-            TextBoxesText text = ChooseSetTextBoxes(setIndex);
-            text.Description = jobScripts.Description;
-            text.ScriptFail = jobScripts.ScriptFailText;
-            text.Solution = jobScripts.Solution;
-            text.Hints = jobScripts.Hints;
-            text.ScriptFix = jobScripts.ScriptFixText;
+            TextBoxes[tabIndex].Description = jobScripts.Description;
+            TextBoxes[tabIndex].ScriptFail = jobScripts.ScriptFailText;
+            TextBoxes[tabIndex].Solution = jobScripts.Solution;
+            TextBoxes[tabIndex].Hints = jobScripts.Hints;
+            TextBoxes[tabIndex].ScriptFix = jobScripts.ScriptFixText;
         }
         public void RunScript(string script)
         {
@@ -208,6 +114,5 @@ namespace Engine.ViewModels
             }
         }
     }
-    
 }
 

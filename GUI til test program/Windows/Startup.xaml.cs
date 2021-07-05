@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-using System.IO;
 using System.Windows.Forms;
 
 
@@ -23,7 +10,7 @@ namespace GUI_til_test_program.Windows
     /// </summary>
     public partial class Startup : Window
     {
-        
+
         public Startup()
         {
             if (!File.Exists(".\\FilePath.txt"))
@@ -43,9 +30,9 @@ namespace GUI_til_test_program.Windows
         {
             FolderBrowserDialog folderBrowserDialog = new();
             DialogResult result = folderBrowserDialog.ShowDialog();
-            if(result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+            if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
             {
-                 FilePathTextBox.Text = folderBrowserDialog.SelectedPath;
+                FilePathTextBox.Text = folderBrowserDialog.SelectedPath;
             }
         }
         private void Exit_OnClick(object sender, RoutedEventArgs e)
@@ -54,7 +41,7 @@ namespace GUI_til_test_program.Windows
         }
         private void Confirm_OnClick(object sender, RoutedEventArgs e)
         {
-            if(FilePathTextBox.Text == string.Empty)
+            if (FilePathTextBox.Text == string.Empty)
             {
                 return;
             }

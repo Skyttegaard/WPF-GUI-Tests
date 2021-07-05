@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿/// <summary>
+/// Indeholder alle tekstfilerne som bliver brugt i viewmodel. Her bliver brugt 1 til hvert sæt som bliver gemt i en liste i viewmodel.
+/// </summary>
 namespace Engine.Models
 {
     public class TextBoxesText : BaseNotificationClass
@@ -13,6 +10,10 @@ namespace Engine.Models
         private string _solution;
         private string _hints;
         private string _scriptFix;
+        private string _currentTimer = "00:00";
+        private string _startTimer = "00:00";
+        private string _endTimer = "00:00";
+
         public string Description
         {
             get => _description;
@@ -55,6 +56,33 @@ namespace Engine.Models
             set
             {
                 _scriptFix = value;
+                OnPropertyChanged();
+            }
+        }
+        public string CurrentTimer
+        {
+            get => _currentTimer;
+            set
+            {
+                _currentTimer = value;
+                OnPropertyChanged();
+            }
+        }
+        public string StartTimer
+        {
+            get => _startTimer;
+            set
+            {
+                _startTimer = value;
+                OnPropertyChanged();
+            }
+        }
+        public string EndTimer
+        {
+            get => _endTimer;
+            set
+            {
+                _endTimer = value;
                 OnPropertyChanged();
             }
         }

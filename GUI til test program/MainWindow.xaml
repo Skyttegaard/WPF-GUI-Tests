@@ -53,9 +53,9 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set1Timers.StartTimer, StringFormat=Start: {0}}"/>
-                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set1Timers.EndTimer, StringFormat=Slut: {0}}"/>
-                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set1Timers.CurrentTimer, StringFormat=Tid: {0}}"/>
+                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[0].StartTimer, StringFormat=Start: {0}}"/>
+                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[0].EndTimer, StringFormat=Slut: {0}}"/>
+                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[0].CurrentTimer, StringFormat=Tid: {0}}"/>
                             </Grid>
                             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
@@ -93,8 +93,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox Grid.Row="0" Text="{Binding Set1Texts.Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
-                                <TextBox Grid.Row="1" Text="{Binding Set1Texts.ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="0" Text="{Binding TextBoxes[0].Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="1" Text="{Binding TextBoxes[0].ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
                             </Grid>
                             <Grid Grid.Row="2" Grid.Column="3">
                                 <Grid.ColumnDefinitions>
@@ -130,14 +130,14 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding Set1Timers.CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding Set1Timers.EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
-                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding Set1Timers.StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding TextBoxes[0].CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding TextBoxes[0].EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding TextBoxes[0].StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
                             </Grid>
                             <!--Solution, Hints & ScriptFix-->
-                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding Set1Texts.Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Set1Texts.Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Set1Texts.ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding TextBoxes[0].Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TextBoxes[0].Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TextBoxes[0].ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
                             <Grid Grid.Row="3" Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -176,9 +176,9 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set2Timers.StartTimer, StringFormat=Start: {0}}"/>
-                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set2Timers.EndTimer, StringFormat=Slut: {0}}"/>
-                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set2Timers.CurrentTimer, StringFormat=Tid: {0}}"/>
+                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[1].StartTimer, StringFormat=Start: {0}}"/>
+                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[1].EndTimer, StringFormat=Slut: {0}}"/>
+                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[1].CurrentTimer, StringFormat=Tid: {0}}"/>
                             </Grid>
                             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
@@ -216,8 +216,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox Grid.Row="0" Text="{Binding Set2Texts.Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
-                                <TextBox Grid.Row="1" Text="{Binding Set2Texts.ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="0" Text="{Binding TextBoxes[1].Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="1" Text="{Binding TextBoxes[1].ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
                             </Grid>
                             <Grid Grid.Row="2" Grid.Column="3">
                                 <Grid.ColumnDefinitions>
@@ -253,14 +253,14 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding Set2Timers.CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding Set2Timers.EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
-                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding Set2Timers.StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding TextBoxes[1].CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding TextBoxes[1].EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding TextBoxes[1].StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
                             </Grid>
                             <!--Solution, Hints & ScriptFix-->
-                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding Set2Texts.Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Set2Texts.Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Set2Texts.ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding TextBoxes[1].Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TextBoxes[1].Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TextBoxes[1].ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
                             <Grid Grid.Row="3" Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -299,9 +299,9 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set3Timers.StartTimer, StringFormat=Start: {0}}"/>
-                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set3Timers.EndTimer, StringFormat=Slut: {0}}"/>
-                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set3Timers.CurrentTimer, StringFormat=Tid: {0}}"/>
+                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[2].StartTimer, StringFormat=Start: {0}}"/>
+                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[2].EndTimer, StringFormat=Slut: {0}}"/>
+                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[2].CurrentTimer, StringFormat=Tid: {0}}"/>
                             </Grid>
                             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
@@ -339,8 +339,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox Grid.Row="0" Text="{Binding Set3Texts.Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
-                                <TextBox Grid.Row="1" Text="{Binding Set3Texts.ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="0" Text="{Binding TextBoxes[2].Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="1" Text="{Binding TextBoxes[2].ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
                             </Grid>
                             <Grid Grid.Row="2" Grid.Column="3">
                                 <Grid.ColumnDefinitions>
@@ -376,14 +376,14 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding Set3Timers.CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding Set3Timers.EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
-                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding Set3Timers.StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding TextBoxes[2].CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding TextBoxes[2].EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding TextBoxes[2].StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
                             </Grid>
                             <!--Solution, Hints & ScriptFix-->
-                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding Set3Texts.Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Set3Texts.Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Set3Texts.ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding TextBoxes[2].Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TextBoxes[2].Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TextBoxes[2].ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
                             <Grid Grid.Row="3" Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -422,9 +422,9 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set4Timers.StartTimer, StringFormat=Start: {0}}"/>
-                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set4Timers.EndTimer, StringFormat=Slut: {0}}"/>
-                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set4Timers.CurrentTimer, StringFormat=Tid: {0}}"/>
+                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[3].StartTimer, StringFormat=Start: {0}}"/>
+                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[3].EndTimer, StringFormat=Slut: {0}}"/>
+                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[3].CurrentTimer, StringFormat=Tid: {0}}"/>
                             </Grid>
                             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
@@ -462,8 +462,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox Grid.Row="0" Text="{Binding Set4Texts.Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
-                                <TextBox Grid.Row="1" Text="{Binding Set4Texts.ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="0" Text="{Binding TextBoxes[3].Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="1" Text="{Binding TextBoxes[3].ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
                             </Grid>
                             <Grid Grid.Row="2" Grid.Column="3">
                                 <Grid.ColumnDefinitions>
@@ -499,14 +499,14 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding Set4Timers.CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding Set4Timers.EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
-                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding Set4Timers.StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding TextBoxes[3].CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding TextBoxes[3].EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding TextBoxes[3].StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
                             </Grid>
                             <!--Solution, Hints & ScriptFix-->
-                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding Set4Texts.Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Set4Texts.Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Set4Texts.ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding TextBoxes[3].Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TextBoxes[3].Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TextBoxes[3].ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
                             <Grid Grid.Row="3" Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -545,9 +545,9 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set5Timers.StartTimer, StringFormat=Start: {0}}"/>
-                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set5Timers.EndTimer, StringFormat=Slut: {0}}"/>
-                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding Set5Timers.CurrentTimer, StringFormat=Tid: {0}}"/>
+                                <TextBox Grid.Column="1" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[4].StartTimer, StringFormat=Start: {0}}"/>
+                                <TextBox Grid.Column="2" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[4].EndTimer, StringFormat=Slut: {0}}"/>
+                                <TextBox Grid.Column="3" Height="40" Width="120" HorizontalAlignment="Right" IsReadOnly="True" Text="{Binding TextBoxes[4].CurrentTimer, StringFormat=Tid: {0}}"/>
                             </Grid>
                             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
@@ -585,8 +585,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox Grid.Row="0" Text="{Binding Set5Texts.Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
-                                <TextBox Grid.Row="1" Text="{Binding Set5Texts.ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="0" Text="{Binding TextBoxes[4].Description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                                <TextBox Grid.Row="1" Text="{Binding TextBoxes[4].ScriptFail}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
                             </Grid>
                             <Grid Grid.Row="2" Grid.Column="3">
                                 <Grid.ColumnDefinitions>
@@ -622,14 +622,14 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--Timers-->
-                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding Set5Timers.CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding Set5Timers.EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
-                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding Set5Timers.StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="3" Width="120" Height="40" Text="{Binding TextBoxes[4].CurrentTimer, StringFormat=Tid: {0}}" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="2" Width="120" Height="40" Text="{Binding TextBoxes[4].EndTimer, StringFormat=Slut: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Column="1" Width="120" Height="40" Text="{Binding TextBoxes[4].StartTimer, StringFormat=Start: {0}}" IsReadOnly="True" HorizontalAlignment="Right"/>
                             </Grid>
                             <!--Solution, Hints & ScriptFix-->
-                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding Set5Texts.Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Set5Texts.Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Set5Texts.ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Text="{Binding TextBoxes[4].Solution}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TextBoxes[4].Hints}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TextBoxes[4].ScriptFix}" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
                             <Grid Grid.Row="3" Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
