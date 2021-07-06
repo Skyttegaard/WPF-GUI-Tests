@@ -23,16 +23,16 @@ namespace GUI_til_test_program
     {
         private readonly DispatcherTimer dispatcherTimer = new();
         private readonly Stopwatch stopWatch = new();
-        private readonly Viewmodels viewModel = new();
+        private readonly Viewmodels viewModel;
         private TabControl SetTabs;
         private readonly List<JobScripts> jobScriptsList = new() { null, null, null, null, null };
         private int CurrentTimerSet;
-
-        public MainWindow()
+        
+        public MainWindow(Viewmodels viewModel)
         {
-
+            this.viewModel = viewModel;
             dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1, 0);
             DataContext = viewModel;
             InitializeComponent();
 
@@ -51,14 +51,6 @@ namespace GUI_til_test_program
         private void LavFejl_Click(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
-            if (stopWatch.IsRunning && CurrentTimerSet != SetTabs.SelectedIndex)
-            {
-                ErrorWindow message = new("Error", "Stop timer på det script du er igang med først", viewModel);
-                message.Owner = GetWindow(this);
-                message.ShowDialog();
-                return;
-            }
-            CurrentTimerSet = SetTabs.SelectedIndex;
             if (jobScriptsList[SetTabs.SelectedIndex] == null)
             {
                 viewModel.ErrorButtonVisibility = false;
@@ -66,22 +58,31 @@ namespace GUI_til_test_program
                 message.Owner = GetWindow(this);
                 message.ShowDialog();
             }
+            else if (stopWatch.IsRunning && CurrentTimerSet != SetTabs.SelectedIndex)
+            {
+                viewModel.ErrorButtonVisibility = false;
+                ErrorWindow message = new("Error", "Stop timer på det script du er igang med først", viewModel);
+                message.Owner = GetWindow(this);
+                message.ShowDialog();
+            }
             else
             {
+                CurrentTimerSet = SetTabs.SelectedIndex;
                 stopWatch.Reset();
                 SetTabs = SetDataTabControl;
                 stopWatch.Start();
                 dispatcherTimer.Start();
                 DelayButton(sender, e);
                 viewModel.SetStartTid(SetTabs.SelectedIndex);
-                viewModel.RunScript(jobScriptsList[SetTabs.SelectedIndex].Fejl);
+                RunScript();
+                
             }
         }
         private void RetFejl_Click(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
             DelayButton(sender, e);
-            viewModel.RunScript(jobScriptsList[SetTabs.SelectedIndex].Løsning);
+            RunScript();
         }
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
@@ -89,7 +90,7 @@ namespace GUI_til_test_program
             if (stopWatch.IsRunning)
             {
                 TimeSpan ts = stopWatch.Elapsed;
-                viewModel.TextBoxes[CurrentTimerSet].CurrentTimer = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+                viewModel.Singleton.TextBoxes[CurrentTimerSet].CurrentTimer = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
             }
         }
         private async void DelayButton(object sender, EventArgs e)
@@ -142,6 +143,17 @@ namespace GUI_til_test_program
             HelpWindow message = new("Hvis du ikke ser nogle opgaver kan du prøve at ændre folderpath. Path skal være ValgtFolder -> Forløb -> Kategori -> Opgave -> Filer.\nFor at ændre folderplacering, tryk 'File'");
             message.Owner = GetWindow(this);
             message.ShowDialog();
+        }
+        private void RunScript()
+        {
+            ProcessStartInfo startInfo = new()
+            {
+
+                FileName = "powershell.exe",
+                Arguments = $"-NoProfile -ExecutionPolicy unrestricted \"{jobScriptsList[SetTabs.SelectedIndex].Fejl}\"",
+                UseShellExecute = false
+            };
+            Process.Start(startInfo);
         }
     }
 }

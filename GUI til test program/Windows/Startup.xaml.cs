@@ -21,8 +21,8 @@ namespace GUI_til_test_program.Windows
             FilePathTextBox.Text = File.ReadAllText(".\\FilePath.txt");
             if (FilePathTextBox.Text != string.Empty)
             {
-                MainWindow mw = new();
-                mw.Show();
+                IPClients icw = new();
+                icw.Show();
                 Close();
             }
         }
@@ -46,9 +46,8 @@ namespace GUI_til_test_program.Windows
                 return;
             }
             File.WriteAllText(".\\FilePath.txt", FilePathTextBox.Text);
-            File.WriteAllText("C:\\Users\\Wowar\\Source\\Repos\\GUI-til-test-program6\\Engine\\FilePath.txt", FilePathTextBox.Text);
-            MainWindow mw = new();
-            mw.Show();
+            IPClients icw = new();
+            icw.Show();
             Close();
         }
     }

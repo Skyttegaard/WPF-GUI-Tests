@@ -103,11 +103,11 @@ namespace Engine.Factories
                         }
                         foreach (FileInfo file in opgaver.GetFiles("Opgave-?.Fejl.ps?"))
                         {
-                            fejl = file.FullName;
+                            fejl = File.ReadAllText(file.FullName);
                         }
                         foreach (FileInfo file in opgaver.GetFiles("Opgave-?.Løsning.ps?"))
                         {
-                            løsning = file.FullName;
+                            løsning = File.ReadAllText(file.FullName);
                         }
                         _jobScripts.Add(new JobScripts(forløbFolder, kategoriFolder, opgaveNavn, description, failScript, solution, hints, solutionScript, fejl, løsning));
                     }

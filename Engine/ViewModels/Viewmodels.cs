@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using Singleton;
 /// <summary>
 /// Dette er viewmodel som bliver brugt som hoveddelen af koden til programmet. Her bliver der bindet til i MainWindow.xaml
 /// Public strings bliver brugt til bindings samt OnPropertyChanged for at de bliver opdateret i view. private strings bliver brugt som backing variable.
@@ -21,7 +22,7 @@ namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
     {
-        private readonly CultureInfo dk = new("da-dk");
+        public Clients SelectedClient { get; set; }
         public bool CloseWindows { get; set; }
         public bool ErrorButtonVisibility { get; set; }
         private string _jobKategori = "Alle";
@@ -29,20 +30,20 @@ namespace Engine.ViewModels
         private List<JobScripts> _jobs { get; set; }
         private List<string> _forløb { get; set; }
         private List<string> _kategori { get; set; }
-
+        private List<Clients> ClientList { get; set; }
+        public IReadOnlyList<Clients> ClientNames => ClientList.AsReadOnly();
         public IReadOnlyList<JobScripts> Jobs => _jobs.FindOpgaver(_jobForløb, _jobKategori);
         public IReadOnlyList<string> Forløb => _forløb.AsReadOnly();
         public IReadOnlyList<string> Kategori => _kategori.AsReadOnly();
-        public List<TextBoxesText> TextBoxes { get; private set; }
-            = new() { new(), new(), new(), new(), new() };
-
+        
+        public SingletonTest Singleton { get; }
         public void SetStartTid(int tabIndex)
         {
-            TextBoxes[tabIndex].StartTimer = DateTime.Now.ToString("HH:mm", dk);
+            Singleton.SetStartTid(tabIndex);
         }
         public void SetSlutTid(int tabIndex)
         {
-            TextBoxes[tabIndex].EndTimer = DateTime.Now.ToString("HH:mm", dk);
+            Singleton.SetSlutTid(tabIndex);
         }
 
         public string JobForløb
@@ -54,7 +55,6 @@ namespace Engine.ViewModels
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Jobs));
                 OnForløbChanged();
-
             }
         }
         public string JobKategori
@@ -68,12 +68,18 @@ namespace Engine.ViewModels
             }
         }
 
-        public Viewmodels()
+        public Viewmodels(List<Clients> clientList)
         {
+            Singleton = SingletonTest.Instance;
             TextFileReader.Initialize();
             _kategori = TextFileReader.GetKategori("GF");
             _forløb = TextFileReader.GetForløb();
             _jobs = TextFileReader.ReadJobScripts();
+            ClientList = clientList;
+            if (clientList.Any())
+            {
+                SelectedClient = ClientList.First();
+            }
         }
         private void OnForløbChanged()
         {
@@ -87,22 +93,7 @@ namespace Engine.ViewModels
 
         public void ChangeDescriptions(JobScripts jobScripts, int tabIndex)
         {
-            TextBoxes[tabIndex].Description = jobScripts.Description;
-            TextBoxes[tabIndex].ScriptFail = jobScripts.ScriptFailText;
-            TextBoxes[tabIndex].Solution = jobScripts.Solution;
-            TextBoxes[tabIndex].Hints = jobScripts.Hints;
-            TextBoxes[tabIndex].ScriptFix = jobScripts.ScriptFixText;
-        }
-        public void RunScript(string script)
-        {
-            ProcessStartInfo startInfo = new()
-            {
-
-                FileName = "powershell.exe",
-                Arguments = $"-NoProfile -ExecutionPolicy unrestricted -file  \"{script}\"",
-                UseShellExecute = false
-            };
-            Process.Start(startInfo);
+            Singleton.SetTextBoxes(tabIndex, jobScripts.Description, jobScripts.ScriptFailText, jobScripts.Solution, jobScripts.Hints, jobScripts.ScriptFixText);
         }
         public string ButtonFixToolTip => "Fix script fejl med denne knap";
         public string ButtonFailToolTip => "Start script med fejl med denne knap";
