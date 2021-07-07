@@ -8,7 +8,7 @@ namespace GUI_til_test_program.Windows
     /// </summary>
     public partial class ErrorWindow : Window
     {
-        public bool ClickedYes = false;
+        public bool ClickedYes;
         public ErrorWindow(string title, string message, Viewmodels viewModel)
         {
             DataContext = viewModel;

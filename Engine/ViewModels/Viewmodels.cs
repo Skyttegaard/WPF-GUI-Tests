@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Singleton;
+using System.Timers;
 /// <summary>
 /// Dette er viewmodel som bliver brugt som hoveddelen af koden til programmet. Her bliver der bindet til i MainWindow.xaml
 /// Public strings bliver brugt til bindings samt OnPropertyChanged for at de bliver opdateret i view. private strings bliver brugt som backing variable.
@@ -22,11 +22,14 @@ namespace Engine.ViewModels
 {
     public class Viewmodels : BaseNotificationClass
     {
-        public Clients SelectedClient { get; set; }
+        private readonly CultureInfo dk = new("da-DK");
+        private int CurrentTimerSet;
+        public Clients Client { get; set; }
         public bool CloseWindows { get; set; }
         public bool ErrorButtonVisibility { get; set; }
         private string _jobKategori = "Alle";
         private string _jobForløb = "GF";
+        private readonly System.Timers.Timer timer = new();
         private List<JobScripts> _jobs { get; set; }
         private List<string> _forløb { get; set; }
         private List<string> _kategori { get; set; }
@@ -35,17 +38,29 @@ namespace Engine.ViewModels
         public IReadOnlyList<JobScripts> Jobs => _jobs.FindOpgaver(_jobForløb, _jobKategori);
         public IReadOnlyList<string> Forløb => _forløb.AsReadOnly();
         public IReadOnlyList<string> Kategori => _kategori.AsReadOnly();
-        
-        public SingletonTest Singleton { get; }
-        public void SetStartTid(int tabIndex)
+        public List<TextBoxesText> TextBoxes { get; set; } = new() { new(), new(), new(), new(), new() };
+        public SelectedClient Selected { get; set; }
+        public Stopwatch StopWatch = new();
+
+        public void SetStartTid(int tabIndex, int currentTimerSet)
         {
-            Singleton.SetStartTid(tabIndex);
+            TextBoxes[tabIndex].StartTimer = DateTime.Now.ToString("HH:mm", dk);
+            StopWatch.Restart();
+            StopWatch.Start();
+            CurrentTimerSet = currentTimerSet;
+            timer.Start();
         }
         public void SetSlutTid(int tabIndex)
         {
-            Singleton.SetSlutTid(tabIndex);
+            StopWatch.Stop();
+            TextBoxes[tabIndex].EndTimer = DateTime.Now.ToString("HH:mm", dk);
         }
 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan ts = StopWatch.Elapsed;
+            TextBoxes[CurrentTimerSet].CurrentTimer = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+        }
         public string JobForløb
         {
             get => _jobForløb;
@@ -68,18 +83,16 @@ namespace Engine.ViewModels
             }
         }
 
-        public Viewmodels(List<Clients> clientList)
+        public Viewmodels(Clients client)
         {
-            Singleton = SingletonTest.Instance;
-            TextFileReader.Initialize();
+            Client = client;
             _kategori = TextFileReader.GetKategori("GF");
             _forløb = TextFileReader.GetForløb();
             _jobs = TextFileReader.ReadJobScripts();
-            ClientList = clientList;
-            if (clientList.Any())
-            {
-                SelectedClient = ClientList.First();
-            }
+            Selected = SelectedClient.Instance;
+            timer.Elapsed += new ElapsedEventHandler(Timer_Tick);
+            timer.Interval = 500;
+            timer.Enabled = true;
         }
         private void OnForløbChanged()
         {
@@ -93,10 +106,13 @@ namespace Engine.ViewModels
 
         public void ChangeDescriptions(JobScripts jobScripts, int tabIndex)
         {
-            Singleton.SetTextBoxes(tabIndex, jobScripts.Description, jobScripts.ScriptFailText, jobScripts.Solution, jobScripts.Hints, jobScripts.ScriptFixText);
+            TextBoxes[tabIndex].Description = jobScripts.Description;
+            TextBoxes[tabIndex].ScriptFail = jobScripts.ScriptFailText;
+            TextBoxes[tabIndex].Solution = jobScripts.Solution;
+            TextBoxes[tabIndex].Hints = jobScripts.Hints;
+            TextBoxes[tabIndex].ScriptFix = jobScripts.ScriptFixText;
+
         }
-        public string ButtonFixToolTip => "Fix script fejl med denne knap";
-        public string ButtonFailToolTip => "Start script med fejl med denne knap";
         public void RestartProgram()
         {
             if (CloseWindows)
@@ -104,6 +120,8 @@ namespace Engine.ViewModels
                 File.WriteAllText(".\\FilePath.txt", string.Empty);
             }
         }
+        public string ButtonFixToolTip => "Fix script fejl med denne knap";
+        public string ButtonFailToolTip => "Start script med fejl med denne knap";
     }
 }
 

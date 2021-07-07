@@ -1,38 +1,27 @@
-﻿using System;
+﻿using Engine.Models;
+using Engine.ViewModels;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Threading;
 namespace Singleton
 {
-    public class SingletonTest
+    public class ViewModelHolder
     {
-        private readonly CultureInfo dk = new("da-DK");
-        private List<StringHolder> textBoxes { get; set; } = new() { new(), new(), new(), new(), new() };
-        private SingletonTest()
+        private List<Viewmodels> _viewModels = new();
+        private ViewModelHolder()
         {
 
         }
-        private static readonly Lazy<SingletonTest> lazy = new(() => new SingletonTest());
-        public static SingletonTest Instance => lazy.Value;
-        public IReadOnlyList<StringHolder> TextBoxes => textBoxes.AsReadOnly();
-        public void SetTextBoxes(int tabIndex, string desc, string scrfail, string sol, string hint, string scrfix)
+        private static readonly Lazy<ViewModelHolder> lazy = new(() => new ViewModelHolder());
+        public static ViewModelHolder Instance => lazy.Value;
+
+        public void AddViewModelToList(Clients client)
         {
-            textBoxes[tabIndex].Description = desc;
-            textBoxes[tabIndex].ScriptFail = scrfail;
-            textBoxes[tabIndex].Solution = sol;
-            textBoxes[tabIndex].Hints = hint;
-            textBoxes[tabIndex].ScriptFix = scrfix;
+            _viewModels.Add(new Viewmodels(client));
         }
-        public void SetStartTid(int tabIndex)
-        {
-            textBoxes[tabIndex].StartTimer = DateTime.Now.ToString("HH:mm", dk);
-        }
-        public void SetSlutTid(int tabIndex)
-        {
-            textBoxes[tabIndex].EndTimer = DateTime.Now.ToString("HH:mm", dk);
-        }
-        
-            
-        
+        public IReadOnlyList<Viewmodels> ViewModels => _viewModels.AsReadOnly();
+
+
+
+
     }
 }

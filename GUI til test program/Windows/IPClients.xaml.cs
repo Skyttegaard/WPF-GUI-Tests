@@ -1,23 +1,10 @@
-﻿using System;
+﻿using Engine.Models;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.IO;
-using Engine.Models;
-using Engine.ViewModels;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace GUI_til_test_program.Windows
 {
@@ -29,7 +16,7 @@ namespace GUI_til_test_program.Windows
         private const string DATA_FILE = ".\\DATA\\Clients.json";
         public IPClients()
         {
-             _clientsList = LoadJsonClients();
+            _clientsList = LoadJsonClients();
             DataContext = this;
             InitializeComponent();
         }
@@ -40,14 +27,14 @@ namespace GUI_til_test_program.Windows
         {
             _clientsList.Add(new Clients(PCName.Text, IPAdress.Text));
             IPAdressDataGrid.Items.Refresh();
-            
+
         }
 
         private void Exit_OnClick(object sender, RoutedEventArgs e)
         {
             File.WriteAllText(DATA_FILE, JsonConvert.SerializeObject(_clientsList, Formatting.Indented));
-            Viewmodels viewModel = new(_clientsList);
-            MainWindow mw = new(viewModel);
+
+            MainWindow mw = new(_clientsList);
             mw.Show();
             Close();
         }
@@ -56,28 +43,43 @@ namespace GUI_til_test_program.Windows
             Clients client = IPAdressDataGrid.SelectedItem as Clients;
             _clientsList.Remove(client);
             IPAdressDataGrid.Items.Refresh();
-            
+
         }
-        private List<Clients> LoadJsonClients()
+        private static List<Clients> LoadJsonClients()
         {
-            if (!File.Exists(DATA_FILE) || File.ReadAllText(DATA_FILE) != "[]")
+            if (!File.Exists(DATA_FILE))
             {
                 return new();
             }
             else
             {
-
-                try
-                {
-                    List<Clients> clients = JsonConvert.DeserializeObject<List<Clients>>(DATA_FILE);
-                    return clients;
-                }
-                catch
-                {
-                    return new();
-                }
+                List<Clients> clients = JsonConvert.DeserializeObject<List<Clients>>(File.ReadAllText(DATA_FILE));
+                return !clients.Any() ? (new()) : clients;
             }
 
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "Input PC Name" || textBox.Text == "Input IP Address")
+            {
+                textBox.Text = "";
+            }
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "")
+            {
+                if (textBox == IPAdress)
+                {
+                    textBox.Text = "Input IP Address";
+                }
+                if (textBox == PCName)
+                {
+                    textBox.Text = "Input PC Name";
+                }
+            }
         }
     }
 }
