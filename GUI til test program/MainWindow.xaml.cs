@@ -4,7 +4,11 @@ using Singleton;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Management.Automation;
+using System.Management.Automation.Runspaces;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,6 +81,7 @@ namespace GUI_til_test_program
                 jobScriptsList[SetDataTabControl.SelectedIndex] = job;
                 viewModelHolder.ViewModels[SelectedComboBoxIndex].ChangeDescriptions(job, SetTabs.SelectedIndex);
             }
+            dataGrid.SelectedItem = null;
         }
         private void LavFejl_Click(object sender, RoutedEventArgs e)
         {
@@ -113,7 +118,6 @@ namespace GUI_til_test_program
         private async void DelayButton(object sender, EventArgs e)
         {
             UIElement element = (UIElement)sender;
-
             element.IsEnabled = false;
             await Task.Delay(5000);
             element.IsEnabled = true;
@@ -127,6 +131,7 @@ namespace GUI_til_test_program
                 viewModelHolder.ViewModels[SelectedComboBoxIndex].SetSlutTid(CurrentTimerSet);
                 DelayButton(sender, e);
             }
+            
         }
         private void TilfældigJob_OnClick(object sender, RoutedEventArgs e)
         {
@@ -159,12 +164,15 @@ namespace GUI_til_test_program
             message.Owner = GetWindow(this);
             message.ShowDialog();
         }
-        private void RunScript(string FixOrFail)
+        private void RunScript(string fixOrFail)
         {
             SetTabs = SetDataTabControl;
             ProcessStartInfo startInfo = new();
-            if (FixOrFail == "fix")
+            if (fixOrFail == "fix")
             {
+                File.WriteAllText(".\\DATA\\SetNumber.txt", (SetTabs.SelectedIndex + 1).ToString());
+                File.WriteAllText(".\\DATA\\CurrentJob.txt", jobScriptsList[SetTabs.SelectedIndex].Title);
+                Thread.Sleep(500);
                 startInfo = new()
                 {
                     FileName = "powershell.exe",
@@ -187,8 +195,11 @@ namespace GUI_til_test_program
                 }
                 viewModelHolder.ViewModels[SelectedComboBoxIndex].ErrorButtonVisibility = false;
             }
-            if (FixOrFail == "fail")
+            if (fixOrFail == "fail")
             {
+                File.WriteAllText(".\\DATA\\SetNumber.txt", (SetTabs.SelectedIndex + 1).ToString());
+                File.WriteAllText(".\\DATA\\CurrentJob.txt", jobScriptsList[SetTabs.SelectedIndex].Title);
+                Thread.Sleep(500);
                 startInfo = new()
                 {
                     FileName = "powershell.exe",
@@ -196,30 +207,32 @@ namespace GUI_til_test_program
                     UseShellExecute = false
                 };
             }
-            Process.Start(startInfo);
-        }
-        //private void RunScript2(string fixOrFail)
-        //{
-        //    SetTabs = SetDataTabControl;
-        //    UriBuilder builder = new(viewModelHolder.ViewModels[SelectedComboBoxIndex].Client.IPAddress);
-        //    Uri uri = builder.Uri;
-        //    WSManConnectionInfo connectionInfo = new(uri);
-        //    connectionInfo.AuthenticationMechanism = AuthenticationMechanism.Negotiate;
-        //    connectionInfo.EnableNetworkAccess = true;
-        //    string script = jobScriptsList[SetTabs.SelectedIndex].Fejl;
-        //    Runspace runspace = RunspaceFactory.CreateRunspace(connectionInfo);
-        //    runspace.Open();
 
-        //    using (PowerShell ps = PowerShell.Create())
-        //    {
-        //        ps.Runspace = runspace;
-        //        ps.AddScript(script);
-        //        ps.Invoke();
-        //    }
-        //    Pipeline pipeline = runspace.CreatePipeline();
-        //    pipeline.Commands.AddScript(script);
-        //    runspace.Close();
-        //}
+            Process.Start(startInfo);
+
+        }
+        private void RunScript2(string fixOrFail)
+        {
+            SetTabs = SetDataTabControl;
+            UriBuilder builder = new(viewModelHolder.ViewModels[SelectedComboBoxIndex].Client.IPAddress);
+            Uri uri = builder.Uri;
+            WSManConnectionInfo connectionInfo = new(uri);
+            connectionInfo.AuthenticationMechanism = AuthenticationMechanism.Negotiate;
+            connectionInfo.EnableNetworkAccess = true;
+            string script = jobScriptsList[SetTabs.SelectedIndex].Fejl;
+            Runspace runspace = RunspaceFactory.CreateRunspace(connectionInfo);
+            runspace.Open();
+
+            using (PowerShell ps = PowerShell.Create())
+            {
+                ps.Runspace = runspace;
+                ps.AddScript(script);
+                ps.Invoke();
+            }
+            Pipeline pipeline = runspace.CreatePipeline();
+            pipeline.Commands.AddScript(script);
+            runspace.Close();
+        }
 
 
     }

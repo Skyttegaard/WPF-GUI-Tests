@@ -16,6 +16,7 @@ namespace Engine.Models
         public string Fejl { get; set; }
         public string Løsning { get; }
         public string Forløb { get; }
+        
         public JobScripts(string forløb, string kategori, string title, string description, string scriptFail, string solution, string hints, string scriptFix, string fejl, string løsning)
         {
             Forløb = forløb;

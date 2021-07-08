@@ -44,14 +44,27 @@ namespace Engine.Factories
             _kategori.Add("Alle");
             foreach (JobScripts scripts in _jobScripts)
             {
-                if (scripts.Forløb == forløb)
+                if (scripts.Forløb == "Ekstra")
                 {
 
                     if (!_kategori.Contains(scripts.Kategori))
                     {
                         _kategori.Add(scripts.Kategori);
+                        continue;
                     }
                 }
+                if(scripts.Forløb == forløb)
+                {
+                    if (!_kategori.Contains(scripts.Kategori))
+                    {
+                        _kategori.Add(scripts.Kategori);
+                    }
+                }
+
+            }
+            foreach(string s in _forløb)
+            {
+                string b = s;
             }
             return _kategori;
         }

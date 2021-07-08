@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,9 +20,15 @@ namespace GUI_til_test_program.Windows
             _clientsList = LoadJsonClients();
             DataContext = this;
             InitializeComponent();
+            if (_clientsList.Any())
+            {
+                Thread.Sleep(2000);
+                Finished();
+
+            }
         }
 
-        private List<Clients> _clientsList { get; set; }
+        public List<Clients> _clientsList { get; set; }
         public IReadOnlyList<Clients> ClientsList => _clientsList.AsReadOnly();
         private void Add_OnClick(object sender, RoutedEventArgs e)
         {
@@ -29,14 +36,17 @@ namespace GUI_til_test_program.Windows
             IPAdressDataGrid.Items.Refresh();
 
         }
-
-        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        private void Finished()
         {
             File.WriteAllText(DATA_FILE, JsonConvert.SerializeObject(_clientsList, Formatting.Indented));
 
             MainWindow mw = new(_clientsList);
             mw.Show();
             Close();
+        }
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Finished();
         }
         private void Remove_OnClick(object sender, RoutedEventArgs e)
         {
@@ -61,7 +71,7 @@ namespace GUI_til_test_program.Windows
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            if (textBox.Text == "Input PC Name" || textBox.Text == "Input IP Address")
+            if (textBox.Text is "Input PC Name" or "Input IP Address")
             {
                 textBox.Text = "";
             }

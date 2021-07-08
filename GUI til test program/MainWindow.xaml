@@ -70,7 +70,7 @@
                                 <!--ComboBox Forløb & Kategori & Client-->
                                 <ComboBox Grid.Row="0" Grid.Column="0"  Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Forløb}" SelectedItem="{Binding JobForløb}"/>
                                 <ComboBox Grid.Row="0" Grid.Column="1" Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Kategori}" SelectedItem="{Binding JobKategori}"/>
-                                <ComboBox Grid.Row="0" Grid.Column="2" Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Selected.ClientList}" DisplayMemberPath="ClientName" SelectedItem="{Binding Selected.Client}" SelectionChanged="ComboBox_SelectionChanged"/>
+                               <!-- <ComboBox Grid.Row="0" Grid.Column="2" Width="80" Height="40" HorizontalAlignment="Left" ItemsSource="{Binding Selected.ClientList}" DisplayMemberPath="ClientName" SelectedItem="{Binding Selected.Client}" SelectionChanged="ComboBox_SelectionChanged"/> !-->
                             </Grid>
                             <DataGrid Grid.Row="1" Grid.Column="0"
                                     Width="300"
@@ -81,7 +81,9 @@
                                     IsReadOnly="True"
                                     CanUserSortColumns="False"
                                     ItemsSource="{Binding Jobs}"
-                                    VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
+                                    VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="3"
+                                    SelectionMode="Single"
+                                    SelectionChanged="DataGrid_SelectionChanged">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Opgave"
                                                     IsReadOnly="True"
