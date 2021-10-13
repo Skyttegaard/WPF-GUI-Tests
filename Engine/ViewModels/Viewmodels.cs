@@ -42,6 +42,11 @@ namespace Engine.ViewModels
         public SelectedClient Selected { get; set; }
         public Stopwatch StopWatch = new();
 
+        /// <summary>
+        /// Restarts timer/ starts timer.
+        /// </summary>
+        /// <param name="tabIndex"></param>
+        /// <param name="currentTimerSet"></param>
         public void SetStartTid(int tabIndex, int currentTimerSet)
         {
             TextBoxes[tabIndex].StartTimer = DateTime.Now.ToString("HH:mm", dk);
@@ -50,17 +55,28 @@ namespace Engine.ViewModels
             CurrentTimerSet = currentTimerSet;
             timer.Start();
         }
+        /// <summary>
+        /// Stops timer.
+        /// </summary>
+        /// <param name="tabIndex"></param>
         public void SetSlutTid(int tabIndex)
         {
             StopWatch.Stop();
             TextBoxes[tabIndex].EndTimer = DateTime.Now.ToString("HH:mm", dk);
         }
-
+        /// <summary>
+        /// Updates current time on timer per tick.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             TimeSpan ts = StopWatch.Elapsed;
             TextBoxes[CurrentTimerSet].CurrentTimer = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
         }
+        /// <summary>
+        /// Gets jobforløb string and calls OnPropertyChanged and OnForløbChanged method.
+        /// </summary>
         public string JobForløb
         {
             get => _jobForløb;
@@ -72,6 +88,9 @@ namespace Engine.ViewModels
                 OnForløbChanged();
             }
         }
+        /// <summary>
+        /// Gets JobKategori string and calls OnPropertyChanged.
+        /// </summary>
         public string JobKategori
         {
             get => _jobKategori;
@@ -82,7 +101,10 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(Jobs));
             }
         }
-
+        /// <summary>
+        /// Constructor sets all needed values.
+        /// </summary>
+        /// <param name="client"></param>
         public Viewmodels(Clients client)
         {
             Client = client;
@@ -94,6 +116,9 @@ namespace Engine.ViewModels
             timer.Interval = 500;
             timer.Enabled = true;
         }
+        /// <summary>
+        /// Sets Jobkategori
+        /// </summary>
         private void OnForløbChanged()
         {
             _kategori = TextFileReader.GetKategori(JobForløb);
@@ -103,7 +128,11 @@ namespace Engine.ViewModels
                 JobKategori = _kategori.First();
             }
         }
-
+        /// <summary>
+        /// Changes text for textboxes.
+        /// </summary>
+        /// <param name="jobScripts"></param>
+        /// <param name="tabIndex"></param>
         public void ChangeDescriptions(JobScripts jobScripts, int tabIndex)
         {
             TextBoxes[tabIndex].Description = jobScripts.Description;
@@ -113,6 +142,9 @@ namespace Engine.ViewModels
             TextBoxes[tabIndex].ScriptFix = jobScripts.ScriptFixText;
 
         }
+        /// <summary>
+        /// Writes FilePath.txt if CloseWindows is true
+        /// </summary>
         public void RestartProgram()
         {
             if (CloseWindows)
@@ -120,7 +152,13 @@ namespace Engine.ViewModels
                 File.WriteAllText(".\\FilePath.txt", string.Empty);
             }
         }
+        /// <summary>
+        /// String for tooltip hover.
+        /// </summary>
         public string ButtonFixToolTip => "Fix script fejl med denne knap";
+        /// <summary>
+        /// String for tooltip hover.
+        /// </summary>
         public string ButtonFailToolTip => "Start script med fejl med denne knap";
     }
 }

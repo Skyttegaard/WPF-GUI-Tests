@@ -11,7 +11,9 @@ namespace GUI_til_test_program.Windows
     /// </summary>
     public partial class Startup : Window
     {
-
+        /// <summary>
+        /// Creates or reads FilePath.txt.
+        /// </summary>
         public Startup()
         {
             if (!File.Exists(".\\FilePath.txt"))
@@ -28,6 +30,11 @@ namespace GUI_til_test_program.Windows
                 Close();
             }
         }
+        /// <summary>
+        /// Opens browser dialog on click and allows folder to be selected and saved.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetFilePath_OnClick(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new();
@@ -37,10 +44,20 @@ namespace GUI_til_test_program.Windows
                 FilePathTextBox.Text = folderBrowserDialog.SelectedPath;
             }
         }
+        /// <summary>
+        /// Closes window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Exit_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
         }
+        /// <summary>
+        /// Saves filepath and opens program.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Confirm_OnClick(object sender, RoutedEventArgs e)
         {
             if (FilePathTextBox.Text == string.Empty)

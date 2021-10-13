@@ -21,6 +21,9 @@ namespace Engine.Models
         {
 
         }
+        /// <summary>
+        /// Provides lazy instantiation for SelectedClient.
+        /// </summary>
         public static SelectedClient Instance => lazy.Value;
 
 

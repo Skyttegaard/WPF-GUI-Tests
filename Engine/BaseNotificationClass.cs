@@ -7,6 +7,10 @@ namespace Engine
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Invokes property changed on propertyname.
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

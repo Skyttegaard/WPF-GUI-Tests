@@ -22,6 +22,9 @@ namespace Engine.Factories
             Initialize();
         }
 
+        /// <summary>
+        /// Reads files from set filepath. Throws FileNotFoundException if no folder exists.
+        /// </summary>
         public static void Initialize()
         {
 
@@ -38,6 +41,11 @@ namespace Engine.Factories
                 throw new FileNotFoundException($"Missing directory: {DATA_FOLDERNAME}");
             }
         }
+        /// <summary>
+        /// Returns kategori list where forløb contains kategori
+        /// </summary>
+        /// <param name="forløb"></param>
+        /// <returns></returns>
         public static List<string> GetKategori(string forløb)
         {
             _kategori.Clear();
@@ -62,16 +70,22 @@ namespace Engine.Factories
                 }
 
             }
-            foreach(string s in _forløb)
-            {
-                string b = s;
-            }
+            
             return _kategori;
         }
+        /// <summary>
+        /// Returns forløb list
+        /// </summary>
+        /// <returns></returns>
         public static List<string> GetForløb() => _forløb;
-
+        /// <summary>
+        /// Returns jobscriptsList
+        /// </summary>
+        /// <returns></returns>
         public static List<JobScripts> ReadJobScripts() => _jobScripts;
-
+        /// <summary>
+        /// Reads all files from folders. 
+        /// </summary>
         public static void ReadDirectoryFiles()
         {
             DirectoryInfo d = new(DATA_FOLDERNAME);
@@ -132,6 +146,13 @@ namespace Engine.Factories
             }
             _jobScripts = _jobScripts.OrderBy(o => o.Title).ToList();
         }
+        /// <summary>
+        /// Gets opgaver where 
+        /// </summary>
+        /// <param name="scripts"></param>
+        /// <param name="forløb"></param>
+        /// <param name="kategori"></param>
+        /// <returns></returns>
         public static List<JobScripts> FindOpgaver(this IEnumerable<JobScripts> scripts, string forløb, string kategori) => kategori == "Alle"
                 ? scripts.Where(s => s.Forløb == forløb).ToList()
                 : scripts.Where(s => s.Kategori == kategori && s.Forløb == forløb).ToList();

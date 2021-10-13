@@ -10,7 +10,7 @@
         FontSize="11pt"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Title="MainWindow" Height="768" Width="1024">
+        Title="Test program" Height="768" Width="1024">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

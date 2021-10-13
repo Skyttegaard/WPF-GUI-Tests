@@ -44,6 +44,9 @@ namespace GUI_til_test_program
             InitializeComponent();
 
         }
+        /// <summary>
+        /// Creates a viewmodel for each client computer.
+        /// </summary>
         private void LoadViewModels()
         {
             foreach (Clients client in selectedClient.ClientList)
@@ -51,10 +54,18 @@ namespace GUI_til_test_program
                 viewModelHolder.AddViewModelToList(client);
             }
         }
+        /// <summary>
+        /// Sets DataContext to current viewmodel
+        /// </summary>
         private void ChooseViewModel()
         {
             DataContext = viewModelHolder.ViewModels[SelectedComboBoxIndex];
         }
+        /// <summary>
+        /// Gets selected combobox int on selection changed. Closes dropdown after click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is ComboBox comboBox && comboBox.IsDropDownOpen)
@@ -72,6 +83,11 @@ namespace GUI_til_test_program
             }
 
         }
+        /// <summary>
+        /// Changes description on current viewmodel for job on selection changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SetTabs = SetDataTabControl;
@@ -83,6 +99,11 @@ namespace GUI_til_test_program
             }
             dataGrid.SelectedItem = null;
         }
+        /// <summary>
+        /// Starts powershellscript and timer on current viewmodel on click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LavFejl_Click(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
@@ -109,12 +130,22 @@ namespace GUI_til_test_program
                 viewModelHolder.ViewModels[SelectedComboBoxIndex].SetStartTid(SetTabs.SelectedIndex, CurrentTimerSet);
             }
         }
+        /// <summary>
+        /// Starts powershellscript on click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RetFejl_Click(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
             DelayButton(sender, e);
             RunScript("fix");
         }
+        /// <summary>
+        /// Disables button for 5 seconds.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void DelayButton(object sender, EventArgs e)
         {
             UIElement element = (UIElement)sender;
@@ -122,6 +153,11 @@ namespace GUI_til_test_program
             await Task.Delay(5000);
             element.IsEnabled = true;
         }
+        /// <summary>
+        /// Stops timer on click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StopTid_OnClick(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
@@ -133,6 +169,11 @@ namespace GUI_til_test_program
             }
             
         }
+        /// <summary>
+        /// Gets random job from list on click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TilfældigJob_OnClick(object sender, RoutedEventArgs e)
         {
             SetTabs = SetDataTabControl;
@@ -141,7 +182,11 @@ namespace GUI_til_test_program
             viewModelHolder.ViewModels[SelectedComboBoxIndex].ChangeDescriptions(jobScriptsList[SetTabs.SelectedIndex], SetTabs.SelectedIndex);
         }
 
-
+        /// <summary>
+        /// Opens new window with option to restart the program and change the folder for files.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeFolderLocation_OnClick(object sender, RoutedEventArgs e)
         {
             viewModelHolder.ViewModels[SelectedComboBoxIndex].ErrorButtonVisibility = true;
@@ -158,12 +203,21 @@ namespace GUI_til_test_program
 
             }
         }
+        /// <summary>
+        /// Opens help window on click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Help_OnClick(object sender, RoutedEventArgs e)
         {
             HelpWindow message = new("Hvis du ikke ser nogle opgaver kan du prøve at ændre folderpath. Path skal være ValgtFolder -> Forløb -> Kategori -> Opgave -> Filer.\nFor at ændre folderplacering, tryk 'File'");
             message.Owner = GetWindow(this);
             message.ShowDialog();
         }
+        /// <summary>
+        /// Writes current setnumber and job title to textfiles. Runs powershell script from selected job.
+        /// </summary>
+        /// <param name="fixOrFail"></param>
         private void RunScript(string fixOrFail)
         {
             SetTabs = SetDataTabControl;
@@ -211,28 +265,28 @@ namespace GUI_til_test_program
             Process.Start(startInfo);
 
         }
-        private void RunScript2(string fixOrFail)
-        {
-            SetTabs = SetDataTabControl;
-            UriBuilder builder = new(viewModelHolder.ViewModels[SelectedComboBoxIndex].Client.IPAddress);
-            Uri uri = builder.Uri;
-            WSManConnectionInfo connectionInfo = new(uri);
-            connectionInfo.AuthenticationMechanism = AuthenticationMechanism.Negotiate;
-            connectionInfo.EnableNetworkAccess = true;
-            string script = jobScriptsList[SetTabs.SelectedIndex].Fejl;
-            Runspace runspace = RunspaceFactory.CreateRunspace(connectionInfo);
-            runspace.Open();
+        //private void RunScript2(string fixOrFail)
+        //{
+        //    SetTabs = SetDataTabControl;
+        //    UriBuilder builder = new(viewModelHolder.ViewModels[SelectedComboBoxIndex].Client.IPAddress);
+        //    Uri uri = builder.Uri;
+        //    WSManConnectionInfo connectionInfo = new(uri);
+        //    connectionInfo.AuthenticationMechanism = AuthenticationMechanism.Negotiate;
+        //    connectionInfo.EnableNetworkAccess = true;
+        //    string script = jobScriptsList[SetTabs.SelectedIndex].Fejl;
+        //    Runspace runspace = RunspaceFactory.CreateRunspace(connectionInfo);
+        //    runspace.Open();
 
-            using (PowerShell ps = PowerShell.Create())
-            {
-                ps.Runspace = runspace;
-                ps.AddScript(script);
-                ps.Invoke();
-            }
-            Pipeline pipeline = runspace.CreatePipeline();
-            pipeline.Commands.AddScript(script);
-            runspace.Close();
-        }
+        //    using (PowerShell ps = PowerShell.Create())
+        //    {
+        //        ps.Runspace = runspace;
+        //        ps.AddScript(script);
+        //        ps.Invoke();
+        //    }
+        //    Pipeline pipeline = runspace.CreatePipeline();
+        //    pipeline.Commands.AddScript(script);
+        //    runspace.Close();
+        //}
 
 
     }

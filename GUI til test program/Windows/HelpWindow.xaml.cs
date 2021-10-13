@@ -7,6 +7,10 @@ namespace GUI_til_test_program.Windows
     /// </summary>
     public partial class HelpWindow : Window
     {
+        /// <summary>
+        /// Small help window with a message.
+        /// </summary>
+        /// <param name="message"></param>
         public HelpWindow(string message)
         {
 

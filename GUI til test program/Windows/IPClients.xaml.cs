@@ -15,6 +15,9 @@ namespace GUI_til_test_program.Windows
     public partial class IPClients : Window
     {
         private const string DATA_FILE = ".\\DATA\\Clients.json";
+        /// <summary>
+        /// Sets clientlist.
+        /// </summary>
         public IPClients()
         {
             _clientsList = LoadJsonClients();
@@ -30,12 +33,20 @@ namespace GUI_til_test_program.Windows
 
         public List<Clients> _clientsList { get; set; }
         public IReadOnlyList<Clients> ClientsList => _clientsList.AsReadOnly();
+        /// <summary>
+        /// Adds a new client to list on click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_OnClick(object sender, RoutedEventArgs e)
         {
             _clientsList.Add(new Clients(PCName.Text, IPAdress.Text));
             IPAdressDataGrid.Items.Refresh();
 
         }
+        /// <summary>
+        /// Closes window and saves clients to json file.
+        /// </summary>
         private void Finished()
         {
             File.WriteAllText(DATA_FILE, JsonConvert.SerializeObject(_clientsList, Formatting.Indented));
@@ -44,10 +55,20 @@ namespace GUI_til_test_program.Windows
             mw.Show();
             Close();
         }
+        /// <summary>
+        /// Closes window and calls Finished method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Exit_OnClick(object sender, RoutedEventArgs e)
         {
             Finished();
         }
+        /// <summary>
+        /// Removes client on click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Remove_OnClick(object sender, RoutedEventArgs e)
         {
             Clients client = IPAdressDataGrid.SelectedItem as Clients;
@@ -55,6 +76,10 @@ namespace GUI_til_test_program.Windows
             IPAdressDataGrid.Items.Refresh();
 
         }
+        /// <summary>
+        /// Loads clients from json if it exists.
+        /// </summary>
+        /// <returns></returns>
         private static List<Clients> LoadJsonClients()
         {
             if (!File.Exists(DATA_FILE))
@@ -68,6 +93,11 @@ namespace GUI_til_test_program.Windows
             }
 
         }
+        /// <summary>
+        /// Removes start text if textbox is focused.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -76,6 +106,11 @@ namespace GUI_til_test_program.Windows
                 textBox.Text = "";
             }
         }
+        /// <summary>
+        /// If textbox is out of focus and text is empty then fill again.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
