@@ -147,7 +147,7 @@ namespace Engine.Factories
             _jobScripts = _jobScripts.OrderBy(o => o.Title).ToList();
         }
         /// <summary>
-        /// Gets opgaver where 
+        /// Gets opgaver where forløb contains kategori or kategori is alle.
         /// </summary>
         /// <param name="scripts"></param>
         /// <param name="forløb"></param>

@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 
@@ -25,8 +24,9 @@ namespace GUI_til_test_program.Windows
             if (FilePathTextBox.Text != string.Empty)
             {
                 IPClients icw = new();
-                MainWindow mw = new(icw._clientsList);
-                mw.Show();
+                icw.Show();
+                //MainWindow mw = new(icw._clientsList);
+                //mw.Show();
                 Close();
             }
         }

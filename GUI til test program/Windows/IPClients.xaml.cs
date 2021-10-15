@@ -23,15 +23,15 @@ namespace GUI_til_test_program.Windows
             _clientsList = LoadJsonClients();
             DataContext = this;
             InitializeComponent();
-            if (_clientsList.Any())
-            {
-                Thread.Sleep(2000);
-                Finished();
+            //if (_clientsList.Any())
+            //{
+            //    Thread.Sleep(2000);
+            //    Finished();
 
-            }
+            //}
         }
 
-        public List<Clients> _clientsList { get; set; }
+        private List<Clients> _clientsList { get; set; }
         public IReadOnlyList<Clients> ClientsList => _clientsList.AsReadOnly();
         /// <summary>
         /// Adds a new client to list on click

@@ -49,6 +49,8 @@ namespace Engine.ViewModels
         /// <param name="currentTimerSet"></param>
         public void SetStartTid(int tabIndex, int currentTimerSet)
         {
+            
+            
             TextBoxes[tabIndex].StartTimer = DateTime.Now.ToString("HH:mm", dk);
             StopWatch.Restart();
             StopWatch.Start();
