@@ -17,11 +17,9 @@ Denne indeholder IP Adresser & PC Navne som (måske) bliver brugt senere.
 
 CurrentJob.txt:
 Denne tekstfil indeholder navnet på det nuværende job.
-//Virker midlertidigt kun med den seneste valgte computers job.
 
 SetNumber.txt:
 Denne tekstfil indeholder tallet på det nuværende sæt efter man har startet en opgave.
-//Virker midlertidigt kun med den seneste valgte computers job.
 
 FilePath.txt:
 Denne tekstfil indeholder filepath til folderen som opgaverne ligger i. File path skal være som følgende.
@@ -33,5 +31,9 @@ EKS: C:\MainFolder\
 (Indeholder så resten af folders her)
 
 Lav en genvej til GUI-TIL-TEST-PROGRAM.exe
+
 Kør denne for at starte programmet.
+
+GITHUB Link: https://github.com/Skyttegaard/WPF-GUI-Tests
+
 
