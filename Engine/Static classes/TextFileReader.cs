@@ -9,7 +9,7 @@ using System.Linq;
 /// GetForløb & ReadJobScripts retunere listerne _forløb & _jobScripts som indeholder navne på forløb & alle scripts med txt filer & scripts
 /// FindOpgaver retunere en liste hvor den sammenligner valgte forløb & kategori fra combobox
 /// </summary>
-namespace Engine.Factories
+namespace Engine.StaticClasses
 {
     public static class TextFileReader
     {
@@ -23,7 +23,7 @@ namespace Engine.Factories
         }
 
         /// <summary>
-        /// Reads files from set filepath. Throws FileNotFoundException if no folder exists.
+        /// Reads files from set filepath. Throws DirectoryNotFoundException if no folder exists.
         /// </summary>
         public static void Initialize()
         {
@@ -31,14 +31,14 @@ namespace Engine.Factories
             _forløb.Clear();
             _jobScripts.Clear();
             _kategori.Clear();
-            DATA_FOLDERNAME = File.ReadAllText(".\\FilePath.txt");
+            DATA_FOLDERNAME = File.ReadAllText(".\\DATA\\FilePath.txt");
             if (Directory.Exists(DATA_FOLDERNAME))
             {
                 ReadDirectoryFiles();
             }
             else
             {
-                throw new FileNotFoundException($"Missing directory: {DATA_FOLDERNAME}");
+                throw new DirectoryNotFoundException($"Missing directory: {DATA_FOLDERNAME}");
             }
         }
         /// <summary>
@@ -50,25 +50,12 @@ namespace Engine.Factories
         {
             _kategori.Clear();
             _kategori.Add("Alle");
-            foreach (JobScripts scripts in _jobScripts)
+            foreach (JobScripts scripts in _jobScripts.Where(js => js.Forløb == forløb))
             {
-                if (scripts.Forløb == "Ekstra")
+                if (!_kategori.Contains(scripts.Kategori))
                 {
-
-                    if (!_kategori.Contains(scripts.Kategori))
-                    {
-                        _kategori.Add(scripts.Kategori);
-                        continue;
-                    }
+                    _kategori.Add(scripts.Kategori);
                 }
-                if(scripts.Forløb == forløb)
-                {
-                    if (!_kategori.Contains(scripts.Kategori))
-                    {
-                        _kategori.Add(scripts.Kategori);
-                    }
-                }
-
             }
             
             return _kategori;
@@ -77,12 +64,12 @@ namespace Engine.Factories
         /// Returns forløb list
         /// </summary>
         /// <returns></returns>
-        public static List<string> GetForløb() => _forløb;
+        public static IReadOnlyList<string> GetForløb() => _forløb.AsReadOnly();
         /// <summary>
         /// Returns jobscriptsList
         /// </summary>
         /// <returns></returns>
-        public static List<JobScripts> ReadJobScripts() => _jobScripts;
+        public static IReadOnlyList<JobScripts> ReadJobScripts() => _jobScripts.AsReadOnly();
         /// <summary>
         /// Reads all files from folders. 
         /// </summary>

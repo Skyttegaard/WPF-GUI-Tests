@@ -32,6 +32,10 @@ namespace Singleton
         /// Read only list for ViewModels
         /// </summary>
         public IReadOnlyList<Viewmodels> ViewModels => _viewModels.AsReadOnly();
+        public void ResetViewModelList()
+        {
+            _viewModels.Clear();
+        }
 
 
 

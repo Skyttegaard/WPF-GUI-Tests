@@ -1,4 +1,4 @@
-﻿using Engine.Factories;
+﻿using Engine.StaticClasses;
 using Engine.Models;
 using System;
 using System.Collections.Generic;
@@ -111,8 +111,8 @@ namespace Engine.ViewModels
         {
             Client = client;
             _kategori = TextFileReader.GetKategori("GF");
-            _forløb = TextFileReader.GetForløb();
-            _jobs = TextFileReader.ReadJobScripts();
+            _forløb = TextFileReader.GetForløb().ToList();
+            _jobs = TextFileReader.ReadJobScripts().ToList();
             Selected = SelectedClient.Instance;
             timer.Elapsed += new ElapsedEventHandler(Timer_Tick);
             timer.Interval = 500;
@@ -151,7 +151,7 @@ namespace Engine.ViewModels
         {
             if (CloseWindows)
             {
-                File.WriteAllText(".\\FilePath.txt", string.Empty);
+                File.WriteAllText(".\\DATA\\FilePath.txt", string.Empty);
             }
         }
         /// <summary>

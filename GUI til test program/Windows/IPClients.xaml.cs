@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace GUI_til_test_program.Windows
 {
@@ -101,6 +102,7 @@ namespace GUI_til_test_program.Windows
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
+            textBox.Foreground = Brushes.Black;
             if (textBox.Text is "Input PC Name" or "Input IP Address")
             {
                 textBox.Text = "";
@@ -116,6 +118,7 @@ namespace GUI_til_test_program.Windows
             TextBox textBox = sender as TextBox;
             if (textBox.Text == "")
             {
+                textBox.Foreground = Brushes.Gray;
                 if (textBox == IPAdress)
                 {
                     textBox.Text = "Input IP Address";

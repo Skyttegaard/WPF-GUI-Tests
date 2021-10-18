@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Forms;
+using Engine.StaticClasses;
 
 
 namespace GUI_til_test_program.Windows
@@ -15,12 +16,12 @@ namespace GUI_til_test_program.Windows
         /// </summary>
         public Startup()
         {
-            if (!File.Exists(".\\FilePath.txt"))
+            if (!File.Exists(".\\DATA\\FilePath.txt"))
             {
-                File.Create(".\\FilePath.txt");
+                File.Create(".\\DATA\\FilePath.txt");
             }
             InitializeComponent();
-            FilePathTextBox.Text = File.ReadAllText(".\\FilePath.txt");
+            FilePathTextBox.Text = File.ReadAllText(".\\DATA\\FilePath.txt");
             if (FilePathTextBox.Text != string.Empty)
             {
                 IPClients icw = new();
@@ -64,9 +65,10 @@ namespace GUI_til_test_program.Windows
             {
                 return;
             }
-            File.WriteAllText(".\\FilePath.txt", FilePathTextBox.Text);
+            File.WriteAllText(".\\DATA\\FilePath.txt", FilePathTextBox.Text);
             IPClients icw = new();
             icw.Show();
+            TextFileReader.Initialize();
             Close();
         }
     }

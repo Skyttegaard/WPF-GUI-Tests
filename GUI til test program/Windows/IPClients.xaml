@@ -28,8 +28,8 @@
         <Button Grid.Column="3" Grid.Row="2" Content="Fjern Valgte" Height="50" Width="80" Click="Remove_OnClick"/>
         <Button Grid.Column="1" Grid.Row="2" Content="Tilføj" Height="50" Width="80" Margin="0,0,5,0" Click="Add_OnClick"/>
         <Button Grid.Column="3" Grid.Row="4" Content="Afslut" Height="50" Width="80" Click="Exit_OnClick"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Text="Input IP Address" Height="50" x:Name="IPAdress" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Text="Input PC Name" Height="50" x:Name="PCName" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Foreground="Gray" Text="Input IP Address" Height="50" x:Name="IPAdress" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Foreground="Gray" Text="Input PC Name" Height="50" x:Name="PCName" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
         <DataGrid Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
                   Width="300"

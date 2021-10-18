@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Management.Automation;
-using System.Management.Automation.Runspaces;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -49,6 +47,7 @@ namespace GUI_til_test_program
         /// </summary>
         private void LoadViewModels()
         {
+            viewModelHolder.ResetViewModelList();
             foreach (Clients client in selectedClient.ClientList)
             {
                 viewModelHolder.AddViewModelToList(client);
@@ -224,8 +223,8 @@ namespace GUI_til_test_program
             ProcessStartInfo startInfo = new();
             if (fixOrFail == "fix")
             {
-                File.WriteAllText(".\\DATA\\SetNumber.txt", (SetTabs.SelectedIndex + 1).ToString());
-                File.WriteAllText(".\\DATA\\CurrentJob.txt", jobScriptsList[SetTabs.SelectedIndex].Title);
+                File.AppendAllText(".\\DATA\\SetNumber.txt", $"Sæt: {SetTabs.SelectedIndex + 1}, PC: {selectedClient.Client.ClientName}, Tidspunkt: {DateTime.Now}\n");
+                File.AppendAllText(".\\DATA\\CurrentJob.txt", $"Job: {jobScriptsList[SetTabs.SelectedIndex].Title}, PC: {selectedClient.Client.ClientName}, Tidspunkt: {DateTime.Now}\n");
                 Thread.Sleep(500);
                 startInfo = new()
                 {
@@ -251,8 +250,8 @@ namespace GUI_til_test_program
             }
             if (fixOrFail == "fail")
             {
-                File.WriteAllText(".\\DATA\\SetNumber.txt", (SetTabs.SelectedIndex + 1).ToString());
-                File.WriteAllText(".\\DATA\\CurrentJob.txt", jobScriptsList[SetTabs.SelectedIndex].Title);
+                File.AppendAllText(".\\DATA\\SetNumber.txt", $"Sæt: {SetTabs.SelectedIndex + 1}, PC: {selectedClient.Client.ClientName}, Tidspunkt: {DateTime.Now}\n");
+                File.AppendAllText(".\\DATA\\CurrentJob.txt", $"Job: {jobScriptsList[SetTabs.SelectedIndex].Title}, PC: {selectedClient.Client.ClientName}, Tidspunkt: {DateTime.Now}\n");
                 Thread.Sleep(500);
                 startInfo = new()
                 {
