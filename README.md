@@ -17,11 +17,9 @@ Denne indeholder IP Adresser & PC Navne som (måske) bliver brugt senere.
 
 CurrentJob.txt:
 Denne tekstfil indeholder navnet på det nuværende job.
-//Virker midlertidigt kun med den seneste valgte computers job.
 
 SetNumber.txt:
 Denne tekstfil indeholder tallet på det nuværende sæt efter man har startet en opgave.
-//Virker midlertidigt kun med den seneste valgte computers job.
 
 FilePath.txt:
 Denne tekstfil indeholder filepath til folderen som opgaverne ligger i. File path skal være som følgende.
