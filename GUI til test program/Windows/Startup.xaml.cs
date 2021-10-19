@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Forms;
 using Engine.StaticClasses;
-
+using System.Threading;
 
 namespace GUI_til_test_program.Windows
 {
@@ -16,12 +16,16 @@ namespace GUI_til_test_program.Windows
         /// </summary>
         public Startup()
         {
-            if (!File.Exists(".\\DATA\\FilePath.txt"))
+            if (!Directory.Exists(".\\DATA"))
             {
-                File.Create(".\\DATA\\FilePath.txt");
+                Directory.CreateDirectory(".\\DATA");
             }
             InitializeComponent();
-            FilePathTextBox.Text = File.ReadAllText(".\\DATA\\FilePath.txt");
+            if (File.Exists(".\\DATA\\FilePath.txt"))
+            {
+                FilePathTextBox.Text = File.ReadAllText(".\\DATA\\FilePath.txt");
+            }
+            
             if (FilePathTextBox.Text != string.Empty)
             {
                 IPClients icw = new();
